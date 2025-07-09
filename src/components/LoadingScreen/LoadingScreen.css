@@ -37,6 +37,7 @@ body, html, #root {
   justify-content: center;
   max-width: 90%;
   width: 100%;
+  color: #aaac9b;
 }
 
 .typed-line {
@@ -44,6 +45,7 @@ body, html, #root {
   margin: 6px 0;
   word-break: break-word;
   white-space: pre-wrap;
+  color: #aaac9b;
 }
 
 .title {
@@ -63,6 +65,7 @@ body, html, #root {
   margin-left: 4px;
   animation: blink 1s steps(1) infinite;
   vertical-align: bottom;
+  pointer-events: none;
 }
 
 @keyframes fadeIn {
