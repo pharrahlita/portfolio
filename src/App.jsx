@@ -10,8 +10,7 @@ function App() {
         <LoadingScreen onFinish={() => setLoading(false)} />
       ) : (
         <div>
-          {/* main site goes here */}
-          <h1>access granted: siany.dev</h1>
+          {/* your actual site content */}
         </div>
       )}
     </>

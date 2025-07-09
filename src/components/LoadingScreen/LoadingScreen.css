@@ -1,37 +1,73 @@
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@font-face {
+  font-family: 'TAN Headline';
+  src: url('../assets/fonts/TAN-Headline.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
   background: #323733;
-  color: #fff;
   font-family: 'VT323', monospace;
+  color: #fff;
 }
 
 .loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+}
+
+.terminal-lines {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  width: 100%;
 }
 
 .typed-line {
-  font-size: 1.2rem;
-  margin: 4px 0;
+  font-size: 1.1rem;
+  margin: 6px 0;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .title {
   font-family: 'TAN Headline', serif;
-  font-size: 4rem;
-  margin: 20px 0;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 24px 0 12px 0;
   color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 .cursor {
-  width: 10px;
-  height: 20px;
-  background: #fff;
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: #fff;
+  margin-left: 4px;
   animation: blink 1s steps(1) infinite;
-  margin-top: 8px;
+  vertical-align: bottom;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes blink {
