@@ -11,6 +11,9 @@
   justify-content: center;
   pointer-events: none;
   padding: 0;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+  -ms-user-select: none;     /* For IE/Edge */
 }
 
 .hero-container {
@@ -94,7 +97,7 @@
 
 .hero-subtext {
   margin-top: 1rem;
-  font-size: 2.1rem;
+  font-size: 1.5rem;
   font-family: 'VT323', monospace;
   letter-spacing: 1px;
   color: #ded9c5;
@@ -118,54 +121,6 @@
 body {
   margin: 0;
   overflow-x: hidden;
-}
-
-.hero-bg-text {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  font-size: 6rem;
-  font-family: 'VT323', monospace;
-  color: #ffffff10;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  animation: floatytext 30s linear infinite;
-  opacity: 0.08;
-}
-
-.hero-bg-text span {
-  animation: drift 18s ease-in-out infinite;
-}
-
-@keyframes floatytext {
-  0% {
-    transform: translateY(0%) translateX(0%);
-  }
-  100% {
-    transform: translateY(-8%) translateX(-1%);
-  }
-}
-
-@keyframes drift {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1.5deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-.hero-bg-text {
-  z-index: 0;
 }
 
 .hero-title,
