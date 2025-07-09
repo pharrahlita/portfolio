@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./LoadingScreen.css";
+import "./LoadingScreen.css"; 
 
 const LoadingScreen = ({ onFinish }) => {
   const [lines, setLines] = useState([]);
@@ -17,6 +17,8 @@ const LoadingScreen = ({ onFinish }) => {
     "> initialising system...",
     "", // triggers the title + subtext
   ];
+
+  
 
   const rawInitialSubtext = "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔";
   const rawFinalSubtext = "welcome to siany.dev...";
@@ -115,7 +117,7 @@ const LoadingScreen = ({ onFinish }) => {
           <>
             <h1 className="title">SIANA</h1>
             <div className="typed-line">
-              <span>&gt; </span>
+              <span>&gt;&gt; </span>
               <span>{subtext}</span>
               <span className="cursor" />
             </div>
