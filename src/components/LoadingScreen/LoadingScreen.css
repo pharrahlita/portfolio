@@ -17,7 +17,7 @@ body, html, #root {
   height: 100%;
   background: #323733;
   font-family: 'VT323', monospace;
-  color: #fff;
+  color: #aaac9b;
 }
 
 .loading-screen {
@@ -61,7 +61,7 @@ body, html, #root {
   display: inline-block;
   width: 8px;
   height: 1.2em;
-  background-color: #fff;
+  background-color: #aaac9b;
   margin-left: 4px;
   animation: blink 1s steps(1) infinite;
   vertical-align: bottom;

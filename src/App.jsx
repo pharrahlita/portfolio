@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import Hero from "./components/MainSite/Hero/Hero";
+
 import btnSoundIdle from "./assets/ui/btn-sound-idle.png";
 import btnSoundClick from "./assets/ui/btn-sound-click.png";
 
@@ -17,55 +19,53 @@ function App() {
     audio.preload = "auto";
   }, []);
 
-  const handleUserClick = () => {
-    if (!audioUnlocked && audioRef.current) {
+  const toggleSound = () => {
+    if (!audioRef.current) return;
+
+    if (!audioUnlocked) {
       audioRef.current
         .play()
         .then(() => {
           setAudioUnlocked(true);
-          console.log("audio unlocked! yay! 🔓🔊");
+          console.log("audio unlocked via mute toggle! 🔊");
         })
         .catch((err) => {
           console.warn("audio still blocked 😔", err);
         });
     }
-  };
 
-  const toggleSound = () => {
-    if (!audioRef.current) return;
     audioRef.current.volume = isMuted ? 1 : 0;
     setIsMuted(!isMuted);
   };
 
   return (
-    <div
-      onClick={handleUserClick}
-      style={{ width: "100vw", height: "100vh", cursor: "pointer" }}
-    >
-      {/* sound toggle button */}
-      <img
-        src={isMuted ? btnSoundClick : btnSoundIdle}
-        onClick={(e) => {
-          e.stopPropagation(); // stop it from triggering audio unlock again
-          toggleSound();
-        }}
-        alt="sound toggle"
-        style={{
-          position: "fixed",
-          bottom: "2rem",
-          left: "2rem",
-          width: "100px",
-          cursor: "pointer",
-          zIndex: 999,
-          imageRendering: "pixelated",
-        }}
-      />
+    <div style={{ width: "100vw", minHeight: "100vh" }}>
+      {/* sound toggle only visible while loading */}
+      {loading && (
+        <img
+          src={isMuted ? btnSoundClick : btnSoundIdle}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleSound();
+          }}
+          alt="sound toggle"
+          style={{
+            position: "fixed",
+            bottom: "2rem",
+            left: "2rem",
+            width: "100px",
+            cursor: "pointer",
+            zIndex: 999,
+            imageRendering: "pixelated",
+          }}
+        />
+      )}
 
-      {/* screen content */}
+      {/* main content */}
       {loading ? (
         <LoadingScreen onFinish={() => setLoading(false)} />
       ) : (
-        <div>{/* actual site content */}</div>
+        <Hero />
       )}
     </div>
   );

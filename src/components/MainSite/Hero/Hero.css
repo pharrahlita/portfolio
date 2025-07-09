@@ -1,0 +1,88 @@
+.hero {
+  background-color: #323733;
+  color: #ded9c5;
+  font-family: 'VT323', monospace;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0; /* nuke all padding */
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-side-text {
+  position: absolute;
+  top: -350px;
+  width: 240px;
+  font-size: 2.3rem;
+  line-height: 1.2;
+  color: #dfded2;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  white-space: pre-wrap;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.hero-side-text.left {
+  left: 0; /* stick to the very left edge */
+  text-align: left;
+  padding-left: 0rem;
+}
+
+.hero-side-text.right {
+  right: 0; /* stick to the very right edge */
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.hero-center {
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  pointer-events: auto;
+}
+
+.hero-title {
+  font-family: "TAN Headline", sans-serif;
+  font-size: 7rem;
+  margin: 0;
+  color: #dbdad0;
+  letter-spacing: 2px;
+}
+
+.hero-subtext {
+  margin-top: 1rem;
+  font-size: 2.1rem;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
+  color: #ded9c5;
+}
+
+.prompt-symbol {
+  color: #c9c3ae;
+}
+
+.blinker {
+  animation: blink 1s step-start infinite;
+  display: inline-block;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
