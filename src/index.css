@@ -66,3 +66,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* font import */
+@font-face {
+  font-family: 'TAN Headline';
+  src: url('./assets/fonts/TANHEADLINE-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('./assets/fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
