@@ -81,3 +81,10 @@ button:focus-visible {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'BSS7';
+  src: url('./assets/fonts/basic_sans_serif_7.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -4,7 +4,7 @@ import "./NavBar.css";
 const navItems = ["INTRO","PROJECTS", "ABOUT", "PROCESS", "FAQ", "CONTACT"];
 
 const NavBar = () => {
-  const [active, setActive] = useState("PROJECTS");
+  const [active, setActive] = useState("INTRO");
 
   return (
     <nav className="nav-bar">

@@ -3,12 +3,12 @@
   align-items: center;
   background: #131212;
   color: #dbdad0;
-  font-family: monospace;
+  font-family: sans-serif;
   padding: 0px 0px;
-  position: absolute;
+  position: fixed;    /* changed from absolute to fixed */
   top: 2rem;
   right: 2rem;
-  border: 1.5px solid #0c0b0b;
+  border: 1px solid #0c0b0b;
   z-index: 10;
 }
 
@@ -24,7 +24,7 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  padding: 6px 8px;
+  padding: 10px 10px;
   cursor: pointer;
   overflow: hidden;
   transition: color 0.2s ease;
@@ -39,7 +39,6 @@
 .nav-text {
   position: relative;
   z-index: 2;
-  mix-blend-mode: difference;
 }
 
 .hover-fill {
@@ -48,14 +47,21 @@
   left: 0;
   height: 0%;
   width: 100%;
-  background: #dbdad0;
+  background: #dbdad0; /* hover color */
   z-index: 1;
-  transition: height 0.3s ease;
+  transition: height 0.3s ease, background 0.2s;
 }
 
-.nav-link:hover .hover-fill,
+/*hover colour */
+.nav-link:hover .hover-fill {
+  height: 100%;
+  background: #8a6a46;
+}
+
+/*active colour */
 .nav-link.active .hover-fill {
   height: 100%;
+  background: #dbdad0; /* active color */
 }
 
 .nav-link:focus {
@@ -68,6 +74,16 @@
   padding: 0 6px;
   font-size: 1rem;
   user-select: none;
+}
+
+/* Change text color to black on hover */
+.nav-link:hover .nav-text {
+  color: #131212;
+}
+
+/* Change text color to black and bold when active */
+.nav-link.active .nav-text {
+  color: #131212;
 }
 
 * {
