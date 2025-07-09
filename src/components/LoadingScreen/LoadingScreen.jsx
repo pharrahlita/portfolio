@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./LoadingScreen.css";
 
 const LoadingScreen = ({ onFinish }) => {
@@ -8,94 +8,97 @@ const LoadingScreen = ({ onFinish }) => {
   const [showTitle, setShowTitle] = useState(false);
   const [subtext, setSubtext] = useState("");
   const [deleting, setDeleting] = useState(false);
-  const [finalMessageShown, setFinalMessageShown] = useState(false);
+
+  const typingRef = useRef(null);
+  const deletingRef = useRef(null);
 
   const script = [
     ">> siany.dev",
     "> initialising system...",
-    "", // title will show here
+    "", // triggers the title + subtext
   ];
 
-  const initialSubtext = "> was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔";
-  const finalSubtext = "> welcome to siany.dev...";
+  const rawInitialSubtext = "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔";
+  const rawFinalSubtext = "welcome to siany.dev...";
 
-  // Type the initial boot lines
+  // Boot text typing logic
   useEffect(() => {
     if (step >= script.length) {
       setTimeout(() => {
         setShowTitle(true);
         setTimeout(() => {
-          typeSubtext();
-        }, 1000);
+          typeSubtext(rawInitialSubtext, () => {
+            setTimeout(() => setDeleting(true), 1000);
+          });
+        }, 800);
       }, 400);
       return;
     }
 
     const line = script[step];
     let i = 0;
-    setCurrentText("");
 
-    const interval = setInterval(() => {
-      if (i < line.length) {
-        setCurrentText((prev = "") => prev + line[i]);
+    typingRef.current = setInterval(() => {
+      if (i <= line.length) {
+        setCurrentText(line.slice(0, i));
         i++;
       } else {
-        clearInterval(interval);
+        clearInterval(typingRef.current);
         setLines((prev) => [...prev, line]);
+        setCurrentText("");
         setStep((prev) => prev + 1);
       }
     }, 40);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(typingRef.current);
   }, [step]);
 
-  // Type first subtext under SIANA
-  const typeSubtext = () => {
+  // Generic text typer
+  const typeSubtext = (text, callback) => {
+    if (typingRef.current) clearInterval(typingRef.current);
     setSubtext("");
     let i = 0;
-    const interval = setInterval(() => {
-      if (i < initialSubtext.length) {
-        setSubtext((prev = "") => prev + initialSubtext[i]);
+
+    typingRef.current = setInterval(() => {
+      if (i <= text.length) {
+        setSubtext(text.slice(0, i));
         i++;
       } else {
-        clearInterval(interval);
-        setTimeout(() => setDeleting(true), 1200);
+        clearInterval(typingRef.current);
+        if (callback) callback();
       }
     }, 30);
   };
 
-  // Delete first subtext
+  // Deleting logic
   useEffect(() => {
     if (!deleting) return;
+    if (typingRef.current) clearInterval(typingRef.current);
 
-    if (subtext.length > 0) {
-      const timeout = setTimeout(() => {
-        setSubtext((prev = "") => prev.slice(0, -1));
-      }, 20);
-      return () => clearTimeout(timeout);
-    } else {
-      setDeleting(false);
-      setTimeout(() => {
-        typeFinalSubtext();
-      }, 500);
-    }
-  }, [deleting, subtext]);
+    deletingRef.current = setInterval(() => {
+      setSubtext((prev) => {
+        if (prev.length === 0) {
+          clearInterval(deletingRef.current);
+          typeSubtext(rawFinalSubtext, () => {
+            setTimeout(onFinish, 3000);
+          });
+          return "";
+        } else {
+          return prev.slice(0, -1);
+        }
+      });
+    }, 20);
 
-  // Type the final subtext
-  const typeFinalSubtext = () => {
-    setSubtext("");
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < finalSubtext.length) {
-        setSubtext((prev = "") => prev + finalSubtext[i]);
-        i++;
-      } else {
-        clearInterval(interval);
-        setFinalMessageShown(true);
-        setTimeout(onFinish, 3000);
-      }
-    }, 40);
-  };
+    return () => clearInterval(deletingRef.current);
+  }, [deleting]);
+
+  // Clean up
+  useEffect(() => {
+    return () => {
+      if (typingRef.current) clearInterval(typingRef.current);
+      if (deletingRef.current) clearInterval(deletingRef.current);
+    };
+  }, []);
 
   return (
     <div className="loading-screen">
@@ -104,7 +107,7 @@ const LoadingScreen = ({ onFinish }) => {
           <div key={i} className="typed-line">{line}</div>
         ))}
 
-        {typeof currentText === "string" && currentText.length > 0 && (
+        {currentText && (
           <div className="typed-line">{currentText}</div>
         )}
 
@@ -113,7 +116,7 @@ const LoadingScreen = ({ onFinish }) => {
             <h1 className="title">SIANA</h1>
             <div className="typed-line">
               <span>&gt; </span>
-              <span>{subtext || ""}</span>
+              <span>{subtext}</span>
               <span className="cursor" />
             </div>
           </>
