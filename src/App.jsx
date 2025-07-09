@@ -10,7 +10,7 @@ function App() {
         <LoadingScreen onFinish={() => setLoading(false)} />
       ) : (
         <div>
-          {/* your actual site content */}
+          {/* actual site content */}
         </div>
       )}
     </>
