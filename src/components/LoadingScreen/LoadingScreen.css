@@ -1,0 +1,40 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #323733;
+  color: #fff;
+  font-family: 'VT323', monospace;
+}
+
+.loading-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.typed-line {
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.title {
+  font-family: 'TAN Headline', serif;
+  font-size: 4rem;
+  margin: 20px 0;
+  color: #fff;
+}
+
+.cursor {
+  width: 10px;
+  height: 20px;
+  background: #fff;
+  animation: blink 1s steps(1) infinite;
+  margin-top: 8px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
