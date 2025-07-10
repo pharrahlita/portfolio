@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Projects.css";
+
+// Images
 import placeholderImg from "../../../assets/imgs/Placeholder.png";
 import disinfoquestImg from "../../../assets/imgs/project-imgs/disinfoquest.png";
 import ungakImg from "../../../assets/imgs/project-imgs/ungak.png";
@@ -12,6 +14,12 @@ import quotesImg from "../../../assets/imgs/project-imgs/quotesapp.png";
 import mermaidsImg from "../../../assets/imgs/project-imgs/mermaids.png";
 import bitnapImg from "../../../assets/imgs/project-imgs/bitnap.png";
 
+// Cat sprite assets
+import hoverCat from "../../../assets/ui/cat1-meow.png";
+import sleepingCat from "../../../assets/ui/cat1.png";
+import meowSfx from "../../../assets/ui/meow.mp3";
+
+
 const fakeLogs = [
   "> LOADING PERSONAL FILES...",
   "> DECRYPTING PORTFOLIO ASSETS...",
@@ -20,15 +28,15 @@ const fakeLogs = [
 const projects = [
   {
     title: "BITNAP",
-    tags: [ "mobile app", "concept", "design", "Figma", "UI/UX", "react", "JavaScript", "mobile development"],
+    tags: ["mobile app", "concept", "design", "Figma", "UI/UX", "react", "JavaScript", "mobile development"],
     date: "ongoing",
     role: "designer/developer",
     image: bitnapImg,
     description: "A collaborative iOS dream journal app concept focused on symbolism, mood tracking, and chaos. Designed in Figma and currently in development using React. Built with soft aesthetics, dark mode, and eerie UI touches. Future plans include AI-powered dream analysis and integrations with Apple Health.",
   },
- {
+  {
     title: "DISINFOQUEST",
-    tags: ["React", "Game development", "website",  "Pixel Art", "cybersecurity"],
+    tags: ["React", "Game development", "website", "Pixel Art", "cybersecurity"],
     image: disinfoquestImg,
     date: "May 2025",
     role: "designer/developer",
@@ -53,7 +61,7 @@ const projects = [
   {
     title: "GOOD FOR YOU",
     tags: ["rebrand", "Adobe", "HTML", "CSS", "Design"],
-    date: "oct 2024",
+    date: "Oct 2024",
     role: "designer/developer",
     image: gfuImg,
     description: "A full rebrand and digital strategy for a local beauty salon. Deliverables included a new logo, print materials (leaflets, brochures, calling cards), a tailored social media plan, and a custom-built website with online booking system integration.",
@@ -61,14 +69,14 @@ const projects = [
   {
     title: "FIREFLY WOODS",
     tags: ["Unity", "Game Development", "C#", "Game Design", "Demo"],
-    date: "may 2021",
+    date: "May 2021",
     role: "designer/developer",
     image: fireflyImg,
     description: "A 2D platformer game built for a games programming assignment, designed for children aged 8–12. Features include multi-level difficulty, collectible items, and hazard navigation — all wrapped in a simple, child-friendly design focused on fun and engagement.",
-},
+  },
   {
     title: "NEO'S PIZZA",
-    tags: [ "Design", "Rebrand", "photoshop", "illustrator", "print", "social media"],
+    tags: ["Design", "Rebrand", "photoshop", "illustrator", "print", "social media"],
     date: "ongoing",
     role: "designer/social media content creator",
     image: neosImg,
@@ -76,43 +84,41 @@ const projects = [
   },
   {
     title: "TOP NOTCH CLEANING",
-    tags: [ "Design", "Rebrand", "website", "HTML", "CSS", "JavaScript", "WordPress"],
-    date: "july 2025",
+    tags: ["Design", "Rebrand", "website", "HTML", "CSS", "JavaScript", "WordPress"],
+    date: "July 2025",
     role: "designer/developer",
     image: tnccImg,
     description: "A branding and website overhaul for a local cleaning business. The project included a custom-built WordPress site (HTML, CSS, JS) and a clean, professional visual identity tailored for both domestic and commercial clients.",
   },
   {
     title: "QUOTES APP",
-    tags: [ "design", "website", "HTML", "CSS", "JavaScript", "python", "replit"],
-    date: "may 2022",
+    tags: ["design", "website", "HTML", "CSS", "JavaScript", "python", "replit"],
+    date: "May 2022",
     role: "designer/developer",
     image: quotesImg,
     description: "A simple web app built in Replit using HTML, CSS, JS, and Python. Allows users to view, submit, and save their favourite quotes. Clean UI, responsive layout, and book-inspired colour palette.",
   },
   {
     title: "MERMAIDS ONLINE LEARNING PORTAL",
-    tags: [ "Design", "development", "cybersecurity", "HTML", "CSS", "JavaScript", "quiz", "education"],
-    date: "jan 2023",
+    tags: ["Design", "development", "cybersecurity", "HTML", "CSS", "JavaScript", "quiz", "education"],
+    date: "Jan 2023",
     role: "designer/developer",
     image: mermaidsImg,
     description: "A fictional browser-based training platform designed for a university assignment. Created as a concept for Mermaids, a UK trans charity, to help staff and volunteers understand online safety and cybersecurity. Includes interactive quizzes, basic gamification, and a user-friendly custom-coded interface for non-technical audiences.",
   },
-  // add more projects here
-
-/*  {
-    title: "TEMPLATE",
-    tags: [ "Design", "Rebrand"],
-    date: "may 2021",
-    role: "designer/developer",
-    image: placeholderImg,
-    description: "",
-},*/
-
 ];
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const audioRef = useRef(new Audio(meowSfx));
+
+  const handleCatHover = () => {
+    setHovered(true);
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
+    setTimeout(() => setHovered(false), 10000); // Reset hover after 10 second
+  };
 
   return (
     <section className="projects-wrapper" id="projects">
@@ -127,7 +133,18 @@ const Projects = () => {
           <div className="window-titlebar">[ PROJECT LOGS ]</div>
 
           <div className="preview-box">
-            <div class="window-icons">— □ x</div>
+            {/* Small hitbox for hover */}
+            <div
+            className="sprite cat"
+            onMouseEnter={handleCatHover}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                backgroundImage: `url(${hovered ? hoverCat : sleepingCat})`,
+            }}
+            ></div>
+
+
+            <div className="window-icons">— □ x</div>
             <div className="preview-title">
               [ {projects[selectedIndex].title} ]
             </div>
@@ -138,9 +155,9 @@ const Projects = () => {
               ))}
             </div>
 
-              <div className="preview-meta">
-                <span className="meta-date">{projects[selectedIndex].date}</span>
-                <span className="meta-role">{projects[selectedIndex].role}</span>
+            <div className="preview-meta">
+              <span className="meta-date">{projects[selectedIndex].date}</span>
+              <span className="meta-role">{projects[selectedIndex].role}</span>
             </div>
 
             <div className="preview-body">
@@ -156,16 +173,16 @@ const Projects = () => {
         </div>
 
         <div className="project-titles">
-            {projects.map((proj, i) => (
-                <div
-                key={proj.title}
-                className={`project-title ${i === selectedIndex ? "active" : ""}`}
-                onClick={() => setSelectedIndex(i)}
-                >
-                [ {proj.title} ]
-                <span className="hover-fill"></span>
-                </div>
-            ))}
+          {projects.map((proj, i) => (
+            <div
+              key={proj.title}
+              className={`project-title ${i === selectedIndex ? "active" : ""}`}
+              onClick={() => setSelectedIndex(i)}
+            >
+              [ {proj.title} ]
+              <span className="hover-fill"></span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
