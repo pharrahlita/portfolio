@@ -14,10 +14,8 @@ import quotesImg from "../../../assets/imgs/project-imgs/quotesapp.png";
 import mermaidsImg from "../../../assets/imgs/project-imgs/mermaids.png";
 import bitnapImg from "../../../assets/imgs/project-imgs/bitnap.png";
 
-// Cat sprite assets
-import hoverCat from "../../../assets/ui/cat1-meow.png";
-import sleepingCat from "../../../assets/ui/cat1.png";
-import meowSfx from "../../../assets/ui/meow.mp3";
+// sprite assets
+import CatSprite from "../CatSprite/CatSprite";
 
 
 const fakeLogs = [
@@ -110,15 +108,6 @@ const projects = [
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [hovered, setHovered] = useState(false);
-  const audioRef = useRef(new Audio(meowSfx));
-
-  const handleCatHover = () => {
-    setHovered(true);
-    audioRef.current.currentTime = 0;
-    audioRef.current.play();
-    setTimeout(() => setHovered(false), 10000); // Reset hover after 10 second
-  };
 
   return (
     <section className="projects-wrapper" id="projects">
@@ -133,16 +122,8 @@ const Projects = () => {
           <div className="window-titlebar">[ PROJECT LOGS ]</div>
 
           <div className="preview-box">
-            {/* Small hitbox for hover */}
-            <div
-            className="sprite cat"
-            onMouseEnter={handleCatHover}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                backgroundImage: `url(${hovered ? hoverCat : sleepingCat})`,
-            }}
-            ></div>
 
+            <CatSprite />
 
             <div className="window-icons">— □ x</div>
             <div className="preview-title">

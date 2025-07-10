@@ -1,0 +1,32 @@
+.cat-hover-zone {
+  position: absolute;
+  width: 350px; 
+  height: 350px;
+  z-index: 5;
+  top: -125px;
+  left: 20rem;
+  transform: scale(0.5);
+}
+
+.sprite.cat {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  image-rendering: pixelated;
+}
+
+.sprite.speech-bubble {
+  position: absolute;
+  bottom: 125%;
+  left: 20%;
+  transform: translateY(-10px);
+  width: 350px;
+  image-rendering: pixelated;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.cat-hover-zone:hover .sprite.speech-bubble {
+  opacity: 1;
+}

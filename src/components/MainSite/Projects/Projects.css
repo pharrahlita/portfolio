@@ -63,10 +63,10 @@
 }
 
 .sprite.cat {
-  top: -345px;
+  top: -115px;
   left: 32rem;
-  width: 350px;
-  height: 350px;
+  width: 200px;
+  height: 200px;
   background-image: url("/assets/ui/cat1.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -79,6 +79,7 @@
 
 .sprite.cat:hover {
   background-image: url("/assets/ui/cat1-meow.png");
+  top: -115px;
 }
 
 .sprite.flowers {
