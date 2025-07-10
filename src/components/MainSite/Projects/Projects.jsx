@@ -127,6 +127,7 @@ const Projects = () => {
           <div className="window-titlebar">[ PROJECT LOGS ]</div>
 
           <div className="preview-box">
+            <div class="window-icons">— □ x</div>
             <div className="preview-title">
               [ {projects[selectedIndex].title} ]
             </div>
