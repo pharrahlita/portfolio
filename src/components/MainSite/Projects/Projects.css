@@ -19,6 +19,8 @@
   margin-bottom: 2rem;
   color: #ccc;
   align-self: center;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
 }
 
 .log-line {
@@ -62,6 +64,8 @@
   border-radius: 6px;
   position: relative;
   font-family: "VT323", monospace;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
 }
 
 /* FAKE WINDOW BAR */
@@ -79,25 +83,27 @@
 
 /* TITLE INSIDE WINDOW */
 .preview-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-top: 1rem;
+  color:#323733
 }
 
 /* TAGS */
 .preview-tags {
   display: flex;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem;
 }
 
 .tag {
   background: #d9d5c2;
-  color: #000;
-  font-size: 0.9rem;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
+  color: #323733;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
   border: none;
+  text-transform: lowercase;
+  font-family: monospace;
 }
 
 /* BODY */
@@ -107,17 +113,37 @@
   align-items: center;
 }
 
+.preview-meta {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  color: #d6d0c4;
+  font-family: monospace;
+  display: flex;
+  gap: 1rem;
+  opacity: 0.8;
+}
+
+.meta-date,
+.meta-role {
+  background: #323733;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgb(51, 51, 51)733;
+  text-transform: lowercase;
+}
+
+
 /* IMAGE SLOT */
 .preview-photo {
   background: #c4bfa8;
-  width: 160px;
-  height: 160px;
+  width: 360px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: monospace;
   font-size: 0.8rem;
-  border: 2px solid #000;
+  border: 2px solid #3734329f;
 }
 
 .preview-photo img {
@@ -135,25 +161,35 @@
 }
 
 .preview-desc p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.5;
-  margin-bottom: 1rem;
+  color: #323733;
+  text-align: center;
+  padding: 2rem;
+  margin-top: -30px;
 }
 
 /* BUTTON */
 .read-more {
   background: #d9d5c2;
+  color: #323733;
   border: none;
-  padding: 0.4rem 1.2rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
+  padding: 0.2rem 2rem;   /* You can reduce the horizontal padding */
+  border-radius: 5px;
+  font-size: 2rem;         /* Smaller font size */
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: auto;               /* Ensure it only fits the text */
+  min-width: 0;              /* Remove any min width */
+  display: inline-block;     /* Prevent stretching */
+  margin: 0 auto;            /* Center if parent is flex/column */
+  margin-bottom: 1.5rem;
 }
 
 .read-more:hover {
   background: #bfbba8;
+  color: rgb(35, 37, 36)33;
 }
 
 /* RIGHT SIDE TITLES */
@@ -183,11 +219,12 @@
   border-bottom: 3px solid #636252;
   cursor: pointer;
   font-family: "VT323", monospace;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #dbdad0;
   letter-spacing: 1px;
   text-align: center;
   z-index: 0;
+  user-select: none;
 }
 
 .project-title .hover-fill {
