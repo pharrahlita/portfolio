@@ -13,7 +13,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero">
+    <section className="hero" id="intro">
       <div className="hero-container">
         <pre className="hero-side-text left">
             {`Thou shalt not be normal. Thou shalt not respect whitespace. thou shalt not plant hidden easter eggs on thoust portfolio site. Thou shalt make audio autoplay (and be smited by Chrome). Thou shalt not explain the joke. Thou shalt not ship portfolio site without at least one cursed asset. Thou shalt design for both desktop and mobile.`}

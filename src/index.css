@@ -88,3 +88,7 @@ button:focus-visible {
   font-weight: normal;
   font-style: normal;
 }
+
+html {
+  scroll-behavior: smooth;
+}

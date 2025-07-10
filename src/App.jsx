@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Hero from "./components/MainSite/Hero/Hero";
 import Navbar from "./components/MainSite/Navbar/Navbar";
+import Projects from "./components/MainSite/Projects/Projects";
 
 import btnSoundIdle from "./assets/ui/btn-sound-idle.png";
 import btnSoundClick from "./assets/ui/btn-sound-click.png";
@@ -69,6 +70,7 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <Projects />
         </>
       )}
     </div>

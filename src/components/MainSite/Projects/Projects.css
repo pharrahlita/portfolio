@@ -1,0 +1,258 @@
+/* GENERAL WRAPPER */
+.projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6rem 3rem;
+  margin: 0;
+  max-width: none;         /* ❌ kill this */
+  width: 100vw;            /* ✅ full screen width */
+  box-sizing: border-box;
+  background-color: #323733;
+}
+
+
+/* TERMINAL LOGS */
+.terminal-logs {
+  font-size: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+  align-self: center;
+}
+
+.log-line {
+  opacity: 1;
+}
+
+/* SECTION LAYOUT */
+.projects-section {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-left: 20rem;
+  left: 40px;
+  align-items: stretch;
+  flex-direction: row;
+  padding-right: 260px; /* leave room for .project-titles sidebar */
+}
+
+
+/* LEFT PANEL – WINDOW STYLE */
+.project-log {
+  flex: 1;
+  max-width: 1000px;
+}
+
+.window-titlebar {
+  font-size: 1.4rem;
+  padding-top: 1.6rem; /* make room for fake bar */
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+/* WINDOW BOX */
+.preview-box {
+  background: #f5f3e7;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  padding: 1rem;
+  border-radius: 6px;
+  position: relative;
+  font-family: "VT323", monospace;
+}
+
+/* FAKE WINDOW BAR */
+.preview-box::before {
+  content: '';
+  display: block;
+  background: #cfc8a8;
+  height: 1.4rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #000;
+}
+
+/* TITLE INSIDE WINDOW */
+.preview-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* TAGS */
+.preview-tags {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background: #d9d5c2;
+  color: #000;
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: none;
+}
+
+/* BODY */
+.preview-body {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* IMAGE SLOT */
+.preview-photo {
+  background: #c4bfa8;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 0.8rem;
+  border: 2px solid #000;
+}
+
+.preview-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DESCRIPTION SIDE */
+.preview-desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-desc p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* BUTTON */
+.read-more {
+  background: #d9d5c2;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.read-more:hover {
+  background: #bfbba8;
+}
+
+/* RIGHT SIDE TITLES */
+.project-titles {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 600px;
+  text-align: center;
+  align-self: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.project-title {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid #636252;
+  cursor: pointer;
+  font-family: "VT323", monospace;
+  font-size: 2.5rem;
+  color: #dbdad0;
+  letter-spacing: 1px;
+  text-align: center;
+  z-index: 0;
+}
+
+.project-title .hover-fill {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #cfc8a879;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.project-title:hover .hover-fill,
+.project-title.active .hover-fill {
+  width: 100%;
+  right: 0;
+  left: auto;
+}
+
+.project-title:hover,
+.project-title.active {
+  color: #dbdad0;
+  font-weight: bold;
+}
+
+
+.project-log {
+  flex: 1 1 0;
+  max-width: 900px;
+  min-width: 900px;
+}
+
+/* 🧠 MEDIA QUERY FOR SMALL SCREENS */
+@media (max-width: 1200px) {
+  .projects-section {
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .project-log {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .preview-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-titles {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0;
+    border-top: 2px solid #a4a27d;
+  }
+
+  .project-title {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #a4a27d;
+  }
+}

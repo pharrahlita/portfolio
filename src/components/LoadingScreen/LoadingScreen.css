@@ -28,6 +28,8 @@ body, html, #root {
   width: 100vw;
   padding: 20px;
   text-align: center;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
 }
 
 .terminal-lines {
@@ -50,10 +52,12 @@ body, html, #root {
 
 .title {
   font-family: 'TAN Headline', serif;
-  font-size: clamp(2.5rem, 7vw, 5rem);
   margin: 24px 0 12px 0;
-  color: #fff;
+  color: #dbdad0;
+  font-size: 7rem;
   opacity: 0;
+  gap: 0.2em;
+  letter-spacing: 0px;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
