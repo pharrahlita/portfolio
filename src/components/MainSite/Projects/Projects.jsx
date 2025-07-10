@@ -56,7 +56,7 @@ const projects = [
     date: "oct 2024",
     role: "designer/developer",
     image: gfuImg,
-    description: "A full rebrand and digital strategy for a beauty salon based in the Isle of Man. Deliverables included a new logo, printed marketing materials (leaflet, brochure, calling cards), a social media strategy, and a bespoke website to reflect the salon’s evolving identity.",
+    description: "A full rebrand and digital strategy for a local beauty salon. Deliverables included a new logo, print materials (leaflets, brochures, calling cards), a tailored social media plan, and a custom-built website with online booking system integration.",
   },
   {
     title: "FIREFLY WOODS",
