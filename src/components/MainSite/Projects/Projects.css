@@ -72,7 +72,16 @@
   bottom: -3rem;
   right: -5rem;
   width: 160px;
-  transform: rotate(10deg);}
+  transform: rotate(10deg);
+  z-index: 10;
+}
+
+.vines {
+  bottom: 5rem;
+  right: -6.5rem;
+  width: 200px;
+  z-index: 0;
+}
 
 
 /* WINDOW BOX */

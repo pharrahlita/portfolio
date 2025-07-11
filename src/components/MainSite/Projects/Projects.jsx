@@ -17,6 +17,7 @@ import bitnapImg from "../../../assets/imgs/project-imgs/bitnap.png";
 // sprite assets
 import catSprite from "../../../assets/ui/cat1.png";
 import duckSprite from "../../../assets/ui/ducky.png";
+import vinesSprite from "../../../assets/ui/vines.png";
 
 
 const fakeLogs = [
@@ -127,7 +128,9 @@ const Projects = () => {
          {/*image sprites*/}
           <div className="sprite-container">
             <img src={catSprite} alt="cat laying down" className="sprite cat" />
-            <img src={duckSprite} alt="Pixel duck" className="sprite duck" />
+            <img src={duckSprite} alt="duck" className="sprite duck" />
+            <img src={vinesSprite} alt="vines" className="sprite vines" />
+
           </div>
 
             <div className="window-icons">— □ x</div>
