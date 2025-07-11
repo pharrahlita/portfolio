@@ -15,7 +15,8 @@ import mermaidsImg from "../../../assets/imgs/project-imgs/mermaids.png";
 import bitnapImg from "../../../assets/imgs/project-imgs/bitnap.png";
 
 // sprite assets
-import CatSprite from "../CatSprite/CatSprite";
+import catSprite from "../../../assets/ui/cat1.png";
+import duckSprite from "../../../assets/ui/ducky.png";
 
 
 const fakeLogs = [
@@ -26,7 +27,7 @@ const fakeLogs = [
 const projects = [
   {
     title: "BITNAP",
-    tags: ["mobile app", "concept", "design", "Figma", "UI/UX", "react", "JavaScript", "mobile development"],
+    tags: ["app", "concept", "design", "Figma", "UI/UX", "react", "mobile development"],
     date: "ongoing",
     role: "designer/developer",
     image: bitnapImg,
@@ -123,7 +124,11 @@ const Projects = () => {
 
           <div className="preview-box">
 
-            <CatSprite />
+         {/*image sprites*/}
+          <div className="sprite-container">
+            <img src={catSprite} alt="cat laying down" className="sprite cat" />
+            <img src={duckSprite} alt="Pixel duck" className="sprite duck" />
+          </div>
 
             <div className="window-icons">— □ x</div>
             <div className="preview-title">

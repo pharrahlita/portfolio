@@ -57,42 +57,22 @@
 
 /* SPRITE IMAGES */
 .sprite {
-  position: absolute;
   image-rendering: pixelated;
-  pointer-events: none;
-}
-
-.sprite.cat {
-  top: -115px;
-  left: 32rem;
-  width: 200px;
-  height: 200px;
-  background-image: url("/assets/ui/cat1.png");
-  background-size: contain;
-  background-repeat: no-repeat;
   position: absolute;
-  image-rendering: pixelated;
-  pointer-events: auto; /* let hover events through now */
-  z-index: 1; 
-  /* background-color: red;  debugging */
+  z-index: 0;
 }
 
-.sprite.cat:hover {
-  background-image: url("/assets/ui/cat1-meow.png");
-  top: -115px;
+.cat {
+  top: -5rem;
+  right: 7rem;
+  width: 140px;
 }
 
-.sprite.flowers {
-  bottom: 2rem;
-  right: 9.5rem;
-  width: 40px;
-}
-
-.sprite.chicken {
-  bottom: 1.5rem;
-  right: 5.5rem;
-  width: 70px;
-}
+.duck {
+  bottom: -3rem;
+  right: -5rem;
+  width: 160px;
+  transform: rotate(10deg);}
 
 
 /* WINDOW BOX */
@@ -106,7 +86,7 @@
   font-family: "VT323", monospace;
   user-select: none;
   -webkit-user-select: none; /* For Safari */
-  z-index: 3;
+  z-index: 999;
 }
 
 /* FAKE WINDOW BAR */

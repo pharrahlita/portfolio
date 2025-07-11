@@ -17,11 +17,35 @@ const LoadingScreen = ({ onFinish }) => {
     "> initialising system...",
     "", // triggers the title + subtext
   ];
-
   
+  const rawInitialSubtexts = [
+    "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔",
+    "not a phase. it's a portfolio site.",
+    "just one more side project... (it's this one).",
+    "certified html girlie.",
+    "probably overengineered this a little.",
+    "frontend dev, perfectionist tendencies.",
+    "adhd-coded. literally.",
+    "attention to detail? unfortunately, yes.",
+    "yes, everything is custom. no, I don’t sleep.",
+    "console.log('hi, i made this.')",
+    "scroll-triggered and over-engineered, just for you.",
+    "yes, the colours are on purpose.",
+    "don’t worry, the site’s responsive. unlike me.",
+    "i hope you like it. i spent way too long on this.",
+    "if you see this, hi <3.",
+    "yes, I tested it on mobile. i'm not a monster.",
+    "you have entered: The Dev Zone.",
+    "welcome to my little corner of the internet.",
+  ];
 
-  const rawInitialSubtext = "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔";
+  // Final subtext to display after the initial subtext
   const rawFinalSubtext = "welcome to siany.dev...";
+
+  // Randomly choose an initial subtext
+    const chosenInitialSubtext = useRef(
+      rawInitialSubtexts[Math.floor(Math.random() * rawInitialSubtexts.length)]
+    );
 
   // Boot text typing logic
   useEffect(() => {
@@ -29,7 +53,7 @@ const LoadingScreen = ({ onFinish }) => {
       setTimeout(() => {
         setShowTitle(true);
         setTimeout(() => {
-          typeSubtext(rawInitialSubtext, () => {
+          typeSubtext(chosenInitialSubtext.current, () => {
             setTimeout(() => setDeleting(true), 1000);
           });
         }, 800);
@@ -40,6 +64,7 @@ const LoadingScreen = ({ onFinish }) => {
     const line = script[step];
     let i = 0;
 
+    // Clear existing typing intervals
     typingRef.current = setInterval(() => {
       if (i <= line.length) {
         setCurrentText(line.slice(0, i));
@@ -52,6 +77,7 @@ const LoadingScreen = ({ onFinish }) => {
       }
     }, 40);
 
+    // Cleanup function to clear the interval
     return () => clearInterval(typingRef.current);
   }, [step]);
 
@@ -81,8 +107,8 @@ const LoadingScreen = ({ onFinish }) => {
       setSubtext((prev) => {
         if (prev.length === 0) {
           clearInterval(deletingRef.current);
-          typeSubtext(rawFinalSubtext, () => {
-            setTimeout(onFinish, 3000);
+            typeSubtext(rawFinalSubtext, () => {
+             setTimeout(onFinish, 3000);
           });
           return "";
         } else {
@@ -102,6 +128,7 @@ const LoadingScreen = ({ onFinish }) => {
     };
   }, []);
 
+  // Render the loading screen
   return (
     <div className="loading-screen">
       <div className="terminal-lines">
