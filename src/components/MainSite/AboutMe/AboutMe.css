@@ -1,7 +1,20 @@
 .about-me-section {
   background: linear-gradient(to bottom, #323733, #242524);
-  padding: 4rem 1rem;
+  padding: 6rem 1rem 4rem;
   min-height: 100vh;
+}
+
+.about-me-title {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: -12.5rem;
+  left: 16%;
+  color: #c4bfa8;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 .about-me-window {
@@ -12,7 +25,7 @@
   color: #222;
   width: 100%;
   max-width: 850px;
-  box-shadow: 4px 4px #000;
+  box-shadow: 4px 4px #0000007a;
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
@@ -48,10 +61,12 @@
 }
 
 .about-me-content {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 2rem;
+  line-height: 1.1rem;
 }
 
 .ascii-img {
@@ -62,12 +77,15 @@
 }
 
 .about-me-text {
+  margin-top: 20px;
   text-align: left;
   font-size: 1.1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color:#50504d;
+  user-select: none;
 }
 
 .about-me-text ul {
@@ -95,8 +113,56 @@
   word-break: break-word;
 }
 
+.hover-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.glitch-tooltip::after {
+  content: "files corrupted";
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f3eeda;
+  color: #50504d;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #242322;
+  box-shadow: 2px 2px #0000004f;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.glitch-tooltip:hover::after {
+  opacity: 1;
+}
+
+
 /* MOBILE ADJUSTMENTS */
 @media (max-width: 1280px) {
+
+   .about-me-title {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: -12.5rem;
+    left: -14%;
+    color: #c4bfa8;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  } 
+
   .about-me-window {
     padding: 1rem;
     margin: 1rem auto;
@@ -117,6 +183,8 @@
   }
 
   .about-me-text {
+    margin-top: -20px;
+    margin-bottom: 10px;
     font-size: 1rem;
     align-items: center;
   }

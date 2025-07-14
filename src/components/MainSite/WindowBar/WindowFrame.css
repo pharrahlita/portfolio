@@ -45,10 +45,12 @@
   color: #222;
   user-select: none;
   position: relative;
+  cursor: help;
 }
 
 .window-close::after {
-  content: "hehe you can't close me i'm immortal";
+  content: "hehe... you can't close me, i'm immortal!!! :D";
+  cursor: help;
   position: absolute;
   top: -2rem;
   left: 50%;
@@ -60,7 +62,6 @@
   border: 1px solid #222;
   box-shadow: 2px 2px #000;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   z-index: 1001;
