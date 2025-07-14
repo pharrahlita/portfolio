@@ -89,27 +89,6 @@ button:focus-visible {
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Bristol';
-  src: url('./assets/fonts/Bristol.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Amstrong';
-  src: url('./assets/fonts/Amstrong.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Amstrong Ornament';
-  src: url('./assets/fonts/Amstrong\ Ornament.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 html {
   scroll-behavior: smooth;
 }
