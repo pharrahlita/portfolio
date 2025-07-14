@@ -21,8 +21,8 @@
 
 .about-cat {
   position: absolute;
-  top: calc(200vh - 81.2vh); /* adjust depending on where the window starts */
-  right: 15rem;
+  top: -15%;
+  right: 8rem;
   width: 150px;
   image-rendering: pixelated;
   z-index: 100;
@@ -188,13 +188,13 @@
     letter-spacing: 0.1rem;
   } 
 
-  .about-cat {
+    .about-cat {
     position: absolute;
-    top: calc(200vh - 81.2vh); /* adjust depending on where the window starts */
-    right: 5rem;
+    top: -9%;
+    right: 1rem;
     width: 150px;
     image-rendering: pixelated;
-    z-index: 100;
+    z-index: 9999;
     pointer-events: none;
     }
 
@@ -203,6 +203,7 @@
     margin: 1rem auto;
     width: 90%;
     max-width: 400px;
+    z-index: 9999;
   }
 
   .about-me-content {
