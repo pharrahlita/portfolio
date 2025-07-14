@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
+import titleBg from "../../../assets/imgs/herobackground.svg";
 
 export default function Hero() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -70,31 +71,33 @@ function SideText({ text, side }) {
         />
 
         <div className="hero-center">
-          <h1 className="hero-title">
-            {["S", "I", "A", "N", "A"].map((letter, index) => {
-              const transforms = [
-                { x: -300, y: -200, r: -24 },
-                { x: -60, y: -350, r: 16 },
-                { x: 80, y: -240, r: -12 },
-                { x: 120, y: -400, r: 24 },
-                { x: 200, y: -180, r: 36 },
-              ];
-              const intensity = scrollProgress;
-              const { x, y, r } = transforms[index];
+          <div className="title-container">
+            <img src={titleBg} alt="" className="title-background" />
+            <h1 className="hero-title">
+              {["S", "I", "A", "N", "A"].map((letter, index) => {
+                const transforms = [
+                  { x: -300, y: -200, r: -24 },
+                  { x: -60, y: -350, r: 16 },
+                  { x: 80, y: -240, r: -12 },
+                  { x: 120, y: -400, r: 24 },
+                  { x: 200, y: -180, r: 36 },
+                ];
+                const intensity = scrollProgress;
+                const { x, y, r } = transforms[index];
 
-              return (
-                <span
-                  key={index}
-                  style={{
-                    transform: `translate(${x * intensity}px, ${y * intensity}px) rotate(${r * intensity}deg)`,
-                  }}
-                >
-                  {letter}
-                </span>
-              );
-            })}
-          </h1>
-
+                return (
+                  <span
+                    key={index}
+                    style={{
+                      transform: `translate(${x * intensity}px, ${y * intensity}px) rotate(${r * intensity}deg)`,
+                    }}
+                  >
+                    {letter}
+                  </span>
+                );
+              })}
+            </h1>
+          </div>
           <p className="hero-subtext">
             <span className="prompt-symbol">⟩</span> ADAPTIVE WEB/GRAPHIC DESIGNER & DEVELOPER
             <span className="blinker"> █</span>
