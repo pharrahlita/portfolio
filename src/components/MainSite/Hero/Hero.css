@@ -130,3 +130,31 @@ body {
   z-index: 1;
 }
 
+/* Side Text Component Anims */
+.side-line span {
+  transition: all 0.3s ease;
+}
+
+/* base glow for all letters */
+.glow-letter {
+  color: #eaeaea;
+  text-shadow: 0 0 2px #ccc, 0 0 6px #ccc;
+}
+
+/* flickering letters on top */
+.blinking-letter {
+  color: #ffffff;
+  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px #aaffff;
+  animation: flicker 0.8s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    filter: brightness(0.6);
+  }
+}
