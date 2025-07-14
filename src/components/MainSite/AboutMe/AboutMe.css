@@ -1,0 +1,132 @@
+.about-me-section {
+  background: linear-gradient(to bottom, #323733, #242524);
+  padding: 4rem 1rem;
+  min-height: 100vh;
+}
+
+.about-me-window {
+  background-color: #f3eeda;
+  border: 2px solid #222;
+  padding: 1rem 2rem;
+  font-family: 'VT323', monospace;
+  color: #222;
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 4px 4px #000;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.about-me-header {
+  color: #686460;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #727066;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about-me-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag-btn {
+  background-color: #727066;
+  border: 1px solid #242322;
+  padding: 0.25rem 1rem;
+  font-family: inherit;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.about-me-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.ascii-img {
+  width: 300px;
+  height: auto;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.about-me-text {
+  text-align: left;
+  font-size: 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about-me-text ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.bg-terminal-text {
+  position: absolute;
+  top: 1300px;
+  left: -89px;
+  width: 800px;
+  padding: 5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #c4bfa81a;
+  font-family: 'TAN Headline', monospace;
+  z-index: 1;
+  line-height: 1.2;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 1280px) {
+  .about-me-window {
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .about-me-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ascii-img {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 1rem;
+  }
+
+  .about-me-text {
+    font-size: 1rem;
+    align-items: center;
+  }
+
+  .about-me-tags {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about-me-header {
+    text-align: center;
+  }
+}

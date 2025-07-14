@@ -5,12 +5,10 @@
   align-items: flex-start;
   padding: 10rem 3rem;
   margin: 0;
-  max-width: none;         /* ❌ kill this */
   width: 100vw;            /* ✅ full screen width */
   box-sizing: border-box;
   background-color: #323733;
 }
-
 
 /* TERMINAL LOGS */
 .terminal-logs {
@@ -374,7 +372,7 @@
     text-align: center;
     padding: 1rem;
     font-size: 2rem;
-    border-bottom: 2px solid #a4a27d;
+    border-bottom: 2px solid #c4bfa8;
   }
 
   .preview-photo {
@@ -471,3 +469,23 @@
     padding: 0.75rem;
   }
 }
+
+.bg-terminal-text {
+  position: absolute;
+  top: 1400px;
+  left: -89px;
+  width: 800px;
+  padding: 5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #c4bfa81a; 
+  font-family: 'TAN Headline', monospace;
+  z-index: 1;
+  line-height: 1.2;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+

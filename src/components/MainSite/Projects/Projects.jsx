@@ -97,6 +97,7 @@ const Projects = () => {
 
   return (
     <section className="projects-wrapper" id="projects">
+          
       <div className="terminal-logs">
         {fakeLogs.map((line, i) => (
           <div key={i} className="log-line">{line}</div>
@@ -161,6 +162,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 
