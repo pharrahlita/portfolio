@@ -4,6 +4,31 @@
   min-height: 100vh;
 }
 
+/* TERMINAL LOGS */
+.terminal-logs {
+  font-size: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+  align-self: center;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+}
+
+.log-line {
+  opacity: 1;
+}
+
+.about-cat {
+  position: absolute;
+  top: calc(200vh - 81.2vh); /* adjust depending on where the window starts */
+  right: 15rem;
+  width: 150px;
+  image-rendering: pixelated;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .about-me-title {
   position: relative;
   margin-top: 3rem;
@@ -162,6 +187,16 @@
     text-transform: uppercase;
     letter-spacing: 0.1rem;
   } 
+
+  .about-cat {
+    position: absolute;
+    top: calc(200vh - 81.2vh); /* adjust depending on where the window starts */
+    right: 5rem;
+    width: 150px;
+    image-rendering: pixelated;
+    z-index: 100;
+    pointer-events: none;
+    }
 
   .about-me-window {
     padding: 1rem;

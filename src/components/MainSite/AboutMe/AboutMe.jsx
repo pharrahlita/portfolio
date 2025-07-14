@@ -1,11 +1,27 @@
 import "./AboutMe.css";
 import butterflyImg from "../../../assets/ui/butterfly-ascii.png";
 import WindowFrame from "../WindowBar/WindowFrame.jsx";
+import catSprite from "../../../assets/ui/cat2.png";
+
+
+const fakeLogs = [
+  "> LOADING PERSONAL FILES...",
+  "> DECRYPTING PORTFOLIO ASSETS...",
+];
 
 const AboutMe = () => {
   return (
     
     <div className="about-me-section" id="about"> 
+
+      <div className="terminal-logs">
+        {fakeLogs.map((line, i) => (
+            <div key={i} className="log-line">{line}</div>
+        ))}
+      </div>
+
+        <img src={catSprite} alt="Pixel Cat" className="about-cat" />
+
 
       <div className="bg-terminal-text">
         EACH TIME IT ASKED FOR A USERNAME, I HESITATED. WHAT NAME DO YOU GIVE YOURSELF WHEN YOUR WHOLE OS IS PATCHED TOGETHER WITH LABELS THAT NEVER QUITE LOADED? I TYPE ‘SIANY’, BUT THE CURSOR BLINKS LIKE IT’S WAITING FOR MORE. MAYBE THE NAME IS WRONG. MAYBE THE SYSTEM IS.
