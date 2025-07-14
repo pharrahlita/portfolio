@@ -25,9 +25,24 @@
   right: 8rem;
   width: 150px;
   image-rendering: pixelated;
-  z-index: 100;
-  pointer-events: none;
+  z-index: 9999;
+  pointer-events: auto;
 }
+
+@keyframes wiggle {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px) rotate(-2deg); }
+  40% { transform: translateX(2px) rotate(2deg); }
+  60% { transform: translateX(-2px) rotate(-2deg); }
+  80% { transform: translateX(2px) rotate(2deg); }
+  100% { transform: translateX(0); }
+}
+
+
+.about-cat:hover {
+    animation: wiggle 0.3s ease-in-out;
+}
+
 
 .about-me-title {
   position: relative;
@@ -40,6 +55,7 @@
   font-family: 'VT323', monospace;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  z-index: 100;
 }
 
 .about-me-window {
@@ -194,7 +210,7 @@
     right: 1rem;
     width: 150px;
     image-rendering: pixelated;
-    z-index: 9999;
+    z-index: 1;
     pointer-events: none;
     }
 
@@ -203,7 +219,7 @@
     margin: 1rem auto;
     width: 90%;
     max-width: 400px;
-    z-index: 9999;
+    z-index: 999;
   }
 
   .about-me-content {

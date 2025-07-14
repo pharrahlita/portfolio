@@ -22,6 +22,8 @@
   .window-frame {
     top: 10rem;
     max-width: 500px;
+        z-index: 9999;
+
   }
 }
 
