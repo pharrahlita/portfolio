@@ -17,7 +17,7 @@ import bitnapImg from "../../../assets/imgs/project-imgs/bitnap.png";
 // sprite assets
 import catSprite from "../../../assets/ui/cat1.png";
 import duckSprite from "../../../assets/ui/ducky.png";
-import vinesSprite from "../../../assets/ui/vines.png";
+import vinesSprite from "../../../assets/ui/vines-bottom1.png";
 
 
 const fakeLogs = [
@@ -32,7 +32,7 @@ const projects = [
     date: "ongoing",
     role: "designer/developer",
     image: bitnapImg,
-    description: "A collaborative iOS dream journal app concept focused on symbolism, mood tracking, and chaos. Designed in Figma and currently in development using React. Built with soft aesthetics, dark mode, and eerie UI touches. Future plans include AI-powered dream analysis and integrations with Apple Health.",
+    description: "A collaborative iOS dream journal app concept focused on symbolism, mood tracking, and chaos. Designed in Figma and currently in development using React. Future plans include AI-powered dream analysis and integrations with Apple Health.",
   },
   {
     title: "DISINFOQUEST",
@@ -67,14 +67,6 @@ const projects = [
     description: "A full rebrand and digital strategy for a local beauty salon. Deliverables included a new logo, print materials (leaflets, brochures, calling cards), a tailored social media plan, and a custom-built website with online booking system integration.",
   },
   {
-    title: "FIREFLY WOODS",
-    tags: ["Unity", "Game Development", "C#", "Game Design", "Demo"],
-    date: "May 2021",
-    role: "designer/developer",
-    image: fireflyImg,
-    description: "A 2D platformer game built for a games programming assignment, designed for children aged 8–12. Features include multi-level difficulty, collectible items, and hazard navigation — all wrapped in a simple, child-friendly design focused on fun and engagement.",
-  },
-  {
     title: "NEO'S PIZZA",
     tags: ["Design", "Rebrand", "photoshop", "illustrator", "print", "social media"],
     date: "ongoing",
@@ -98,14 +90,6 @@ const projects = [
     image: quotesImg,
     description: "A simple web app built in Replit using HTML, CSS, JS, and Python. Allows users to view, submit, and save their favourite quotes. Clean UI, responsive layout, and book-inspired colour palette.",
   },
-  {
-    title: "MERMAIDS ONLINE LEARNING PORTAL",
-    tags: ["Design", "development", "cybersecurity", "HTML", "CSS", "JavaScript", "quiz", "education"],
-    date: "Jan 2023",
-    role: "designer/developer",
-    image: mermaidsImg,
-    description: "A fictional browser-based training platform designed for a university assignment. Created as a concept for Mermaids, a UK trans charity, to help staff and volunteers understand online safety and cybersecurity. Includes interactive quizzes, basic gamification, and a user-friendly custom-coded interface for non-technical audiences.",
-  },
 ];
 
 const Projects = () => {
@@ -123,43 +107,45 @@ const Projects = () => {
         <div className="project-log">
           <div className="window-titlebar">[ PROJECT LOGS ]</div>
 
-          <div className="preview-box">
-
-         {/*image sprites*/}
+          {/* image sprites */}
           <div className="sprite-container">
             <img src={catSprite} alt="cat laying down" className="sprite cat" />
             <img src={duckSprite} alt="duck" className="sprite duck" />
             <img src={vinesSprite} alt="vines" className="sprite vines" />
-
           </div>
 
-            <div className="window-icons">— □ x</div>
-            <div className="preview-title">
-              [ {projects[selectedIndex].title} ]
-            </div>
+          <div className="preview-box">
+            <div key={selectedIndex} className="preview-fade">
 
-            <div className="preview-tags">
-              {projects[selectedIndex].tags.map((tag, i) => (
-                <span key={i} className="tag">{tag}</span>
-              ))}
-            </div>
 
-            <div className="preview-meta">
-              <span className="meta-date">{projects[selectedIndex].date}</span>
-              <span className="meta-role">{projects[selectedIndex].role}</span>
-            </div>
-
-            <div className="preview-body">
-              <div className="preview-photo">
-                <img src={projects[selectedIndex].image} alt="project" />
+              <div className="window-icons">— □ x</div>
+              <div className="preview-title">
+                [ {projects[selectedIndex].title} ]
               </div>
-              <div className="preview-desc">
-                <p>{projects[selectedIndex].description}</p>
-                <button className="read-more">READ MORE</button>
+
+              <div className="preview-tags">
+                {projects[selectedIndex].tags.map((tag, i) => (
+                  <span key={i} className="tag">{tag}</span>
+                ))}
+              </div>
+
+              <div className="preview-meta">
+                <span className="meta-date">{projects[selectedIndex].date}</span>
+                <span className="meta-role">{projects[selectedIndex].role}</span>
+              </div>
+
+              <div className="preview-body">
+                <div className="preview-photo">
+                  <img src={projects[selectedIndex].image} alt="project" />
+                </div>
+                <div className="preview-desc">
+                  <p>{projects[selectedIndex].description}</p>
+                  <button className="read-more">READ MORE</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          </div>
 
         <div className="project-titles">
           {projects.map((proj, i) => (

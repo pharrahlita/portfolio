@@ -63,26 +63,25 @@
 }
 
 .cat {
-  top: -5rem;
-  right: 7rem;
-  width: 140px;
+  top: 4%;
+  left: 45%;
+  width: 150px;
 }
 
 .duck {
-  bottom: -3rem;
-  right: -5rem;
-  width: 160px;
-  transform: rotate(10deg);
-  z-index: 10;
+  bottom: 12%;
+  right: 40%;
+  width: 150px;
+  transform: rotate(5deg);
+  z-index: 999;
+  opacity: 0;
 }
 
 .vines {
-  bottom: 6rem;
-  right: -7rem;
-  width: 220px;
-  z-index: 0;
+  bottom: 13%;
+  left: 12%;
+  z-index: 995;
 }
-
 
 /* WINDOW BOX */
 .preview-box {
@@ -95,7 +94,7 @@
   font-family: "VT323", monospace;
   user-select: none;
   -webkit-user-select: none; /* For Safari */
-  z-index: 999;
+  z-index: 900;
 }
 
 /* FAKE WINDOW BAR */
@@ -240,6 +239,17 @@
   margin-top: -30px;
 }
 
+.preview-fade {
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 /* BUTTON */
 .read-more {
   background: #d9d5c2;
@@ -334,7 +344,8 @@
 }
 
 /* 🧠 MEDIA QUERY FOR SMALL SCREENS */
-@media (max-width: 1200px) {
+
+@media (max-width: 1500px) {
   .projects-section {
     flex-direction: column;
     padding-left: 1.5rem;
@@ -366,9 +377,46 @@
     font-size: 2rem;
     border-bottom: 2px solid #a4a27d;
   }
+
+  .preview-photo {
+  background: #c4bfa8;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 0.8rem;
+  border: 2px solid #3734329f;
+  }
+
+  /*Responsive adjustments for sprites*/
+
+  .cat {
+    top: 2%;
+    left: 60%;
+    width: 150px;
+  }
+
+  .duck {
+    bottom: 30%;
+    right: -10%;
+    width: 150px;
+    opacity: 0;
+
+  }
+
+  .vines {
+    bottom: 31.5%;
+    left: -3%;
+    z-index: 995;
+    opacity: 0;
+
+  }
+
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .projects-wrapper {
     padding: 4rem 1.5rem;
   }
@@ -395,7 +443,8 @@
   }
 
   .preview-photo {
-    width: 100%;
+    margin-top: 5%;
+    width: 80%;
     height: auto;
     aspect-ratio: 1 / 1; /* keep square feel on wide screens */
   }
