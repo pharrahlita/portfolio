@@ -26,6 +26,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 0.5rem;
+  cursor: move;
 }
 
 .player-title {
@@ -51,6 +52,7 @@
 .player-content {
   padding: 1rem;
   text-align: center;
+  user-select: none;
 }
 
 .music-cat {
@@ -95,7 +97,6 @@
   outline: none;
 }
 
-
 .music-controls img {
   width: 24px;
   height: 24px;
@@ -122,3 +123,92 @@
   width: 0;
   transition: width 0.3s ease-in-out;
 }
+
+
+/*im bored lol*/
+.death-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  color: #00ff88;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeIn 0.3s ease-in;
+  pointer-events: none;
+}
+
+.death-text {
+  white-space: pre-line;
+  animation: flicker 0.9s infinite alternate;
+}
+
+.glitchy {
+  color: #ff4d6d;
+  font-weight: bold;
+  animation: glitch 0.3s infinite;
+  text-shadow:
+    1px 0 #00fff7,
+    -1px 0 #ff4d6d,
+    0 0 3px #ff4d6d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes flicker {
+  from { opacity: 1 }
+  to   { opacity: 0.85 }
+}
+
+@keyframes glitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-2px, 0px); }
+  80%  { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* When music player is dead inside */
+.music-player-frame.disabled {
+  opacity: 0.5;
+  filter: grayscale(100%) brightness(0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+/* still visible on hover, but obviously... dead vibes */
+.music-player-frame.disabled:hover {
+  filter: grayscale(100%) brightness(0.6) contrast(1.2);
+  cursor: not-allowed;
+}
+
+.forgive-btn {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  color: #ff4d6d;
+  background-color: #000;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin: 2rem auto 0;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0;
+}
+
+.forgive-btn:hover {
+  background-color: #1a1a1a;
+  color: #00fff7;
+  transform: scale(1.05);
+}
+
+.forgive-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px #000000;
+}
+

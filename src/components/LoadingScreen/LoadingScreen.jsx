@@ -20,21 +20,16 @@ const LoadingScreen = ({ onFinish }) => {
   
   const rawInitialSubtexts = [
     "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔",
-    "not a phase. it's a portfolio site.",
     "just one more side project... (it's this one).",
     "certified html girlie.",
     "probably overengineered this a little.",
-    "frontend dev, perfectionist tendencies.",
     "adhd-coded. literally.",
     "attention to detail? unfortunately, yes.",
     "yes, everything is custom. no, I don’t sleep.",
-    "console.log('hi, i made this.')",
-    "scroll-triggered and over-engineered, just for you.",
-    "yes, the colours are on purpose.",
+    "console.log('blorp blorp');",
     "don’t worry, the site’s responsive. unlike me.",
     "i hope you like it. i spent way too long on this.",
     "if you see this, hi <3.",
-    "yes, I tested it on mobile. i'm not a monster.",
     "you have entered: The Dev Zone.",
     "welcome to my little corner of the internet.",
   ];
