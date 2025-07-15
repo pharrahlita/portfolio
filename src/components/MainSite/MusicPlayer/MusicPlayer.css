@@ -88,7 +88,13 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  outline: none;
 }
+
+.music-controls button:focus {
+  outline: none;
+}
+
 
 .music-controls img {
   width: 24px;

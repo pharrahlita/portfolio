@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./MusicPlayer.css";
 
 import musicCat from "../../../assets/ui/cat3.png";
@@ -8,21 +8,29 @@ import prevIcon from "../../../assets/ui/prev.svg";
 import skipIcon from "../../../assets/ui/skip.svg";
 
 const tracks = [
-  { title: "metro van de laatste rit", src: "/assets/audio/metro.mp3" },
-  { title: "scared to be alone; scared fall in love", src: "/assets/audio/scared.mp3" },
-  { title: "wildflower", src: "/assets/audio/wildflower.mp3" },
-  { title: "labour", src: "/assets/audio/labour.mp3" },
-  { title: "miaw miaw miaw", src: "/assets/audio/meow.mp3" }
+  { title: "𐔌   .  ⋮ waar ben ik.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/metro.mp3" },
+  { title: "𐔌   .  ⋮ untitled.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/scared.mp3" },
+  { title: "𐔌   .  ⋮ wildflower.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/wildflower.mp3" },
+  { title: "𐔌   .  ⋮ angst.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/labour.mp3" },
+  { title: "𐔌   .  ⋮ miau.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/meow.mp3" }
 ];
 
 const MusicPlayer = () => {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
   const audioRef = useRef(null);
+  const playerRef = useRef(null);
+  const pos = useRef({ x: 0, y: 0, offsetX: 0, offsetY: 0 });
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
     setIsPlaying(!isPlaying);
   };
 
@@ -40,21 +48,73 @@ const MusicPlayer = () => {
     setTimeout(() => audioRef.current.play(), 100);
   };
 
-  return (
-    <div className="music-player-frame">
+  const handleClose = () => {
+    setIsVisible(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  };
 
-    <img
-    src={musicCat}
-    alt="Pixel Cat"
-    className={`music-cat ${isPlaying ? "cat-bop" : ""}`}
-    />
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateProgress = () => {
+      if (audio.duration) {
+        const current = (audio.currentTime / audio.duration) * 100;
+        setProgress(current);
+      }
+    };
+
+    audio.addEventListener("timeupdate", updateProgress);
+    return () => audio.removeEventListener("timeupdate", updateProgress);
+  }, [currentTrackIndex]);
+
+  useEffect(() => {
+    const player = playerRef.current;
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile || !player) return;
+
+    const handleMouseDown = (e) => {
+      if (!e.target.closest(".player-titlebar")) return;
+      pos.current.offsetX = e.clientX - player.offsetLeft;
+      pos.current.offsetY = e.clientY - player.offsetTop;
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    };
+
+    const handleMouseMove = (e) => {
+      const x = e.clientX - pos.current.offsetX;
+      const y = e.clientY - pos.current.offsetY;
+      player.style.left = `${x}px`;
+      player.style.top = `${y}px`;
+    };
+
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    player.addEventListener("mousedown", handleMouseDown);
+    return () => player.removeEventListener("mousedown", handleMouseDown);
+  }, []);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="music-player-frame" ref={playerRef}>
+      <img
+        src={musicCat}
+        alt="Pixel Cat"
+        className={`music-cat ${isPlaying ? "cat-bop" : ""}`}
+      />
 
       <div className="player-titlebar">
         <span className="player-title">୧ ‧₊˚ 🎧 ⋅ ☆ miau.mp3</span>
         <div className="player-controls">
           <span className="window-hyphen"> — </span>
           <span className="window-square"> □ </span>
-          <span className="window-close"> x </span>
+          <span className="window-close" onClick={handleClose}> x </span>
         </div>
       </div>
 
@@ -82,7 +142,7 @@ const MusicPlayer = () => {
         <div className="progress-bar">
           <div
             className="progress-fill"
-            style={{ width: isPlaying ? "40%" : "0%" }}
+            style={{ width: `${progress}%` }}
           />
         </div>
       </div>
