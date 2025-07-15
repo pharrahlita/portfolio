@@ -5,6 +5,9 @@ import me from "../../../assets/ui/me.png";
 const Skillset = () => {
   return (
     <div className="skillset-wrapper">
+
+      <div className="skills-title"> [ SKILLSET ] </div>
+
       <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
         <div className="skillset-window" id="skills">
           <img

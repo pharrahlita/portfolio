@@ -16,7 +16,6 @@ const AboutMe = () => {
 
       <div className="about-me-title"> [ DOSSIER : SIANA ] </div>
 
-
         <WindowFrame>
 
             <img src={catSprite} alt="Pixel Cat" className="about-cat" />
