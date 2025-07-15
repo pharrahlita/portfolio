@@ -8,11 +8,11 @@ import prevIcon from "../../../assets/ui/prev.svg";
 import skipIcon from "../../../assets/ui/skip.svg";
 
 const tracks = [
-  { title: "metro van de laatste rit", src: "/audio/metro.mp3" },
-  { title: "scared to be alone; scared fall in love", src: "/audio/scared.mp3" },
-  { title: "wildflower", src: "/audio/wildflower.mp3" },
-  { title: "labour", src: "/audio/labour.mp3" },
-  { title: "miaw miaw miaw", src: "/audio/meow.mp3" }
+  { title: "metro van de laatste rit", src: "/assets/audio/metro.mp3" },
+  { title: "scared to be alone; scared fall in love", src: "/assets/audio/scared.mp3" },
+  { title: "wildflower", src: "/assets/audio/wildflower.mp3" },
+  { title: "labour", src: "/assets/audio/labour.mp3" },
+  { title: "miaw miaw miaw", src: "/assets/audio/meow.mp3" }
 ];
 
 const MusicPlayer = () => {
@@ -42,7 +42,7 @@ const MusicPlayer = () => {
 
   return (
     <div className="music-player-frame">
-        
+
     <img
     src={musicCat}
     alt="Pixel Cat"
