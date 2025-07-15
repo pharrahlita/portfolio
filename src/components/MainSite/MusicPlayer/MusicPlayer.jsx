@@ -42,7 +42,12 @@ const MusicPlayer = () => {
 
   return (
     <div className="music-player-frame">
-      <img src={musicCat} alt="Pixel Cat" className="music-cat" />
+        
+    <img
+    src={musicCat}
+    alt="Pixel Cat"
+    className={`music-cat ${isPlaying ? "cat-bop" : ""}`}
+    />
 
       <div className="player-titlebar">
         <span className="player-title">୧ ‧₊˚ 🎧 ⋅ ☆ miau.mp3</span>
