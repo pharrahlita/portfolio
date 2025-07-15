@@ -263,24 +263,6 @@ const MusicPlayer = () => {
         ref={playerRef}
       >
 
-      <div className="terminal-logs">
-        {fakeLogs.map((line, i) => (
-            <div key={i} className="log-line">
-            {line.split("").map((char, j) => {
-                const shouldBlink = Math.random() < 0.1;
-                return (
-                <span
-                    key={`${i}-${j}-${flickerTick}`} // 🔥 rerender span each tick
-                    className={`log-letter glow-letter ${shouldBlink ? "blinking-letter" : ""}`}
-                >
-                    {char}
-                </span>
-                );
-            })}
-            </div>
-        ))}
-      </div>
-
 
         <img
           src={permaDisabled ? catGhost : musicCat}

@@ -16,16 +16,20 @@
 
 .terminal-logs {
   position: absolute;
-  top: -55%;
-  left: 100%;
-  align-items: center;
+  top: 4rem; /* adjust for taste */
+  left: 2rem;
+  width: auto;
+  max-width: 800px;
   font-family: 'VT323', monospace;
   font-size: 1.2rem;
   color: #ccc;
-  user-select: none;
   opacity: 0.2;
-  background: transparent;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+  white-space: pre-wrap;
 }
+
 
 .log-line {
   display: flex;
@@ -156,7 +160,6 @@
   75% { transform: rotate(-2deg) translateY(-1px); }
   100% { transform: rotate(0deg) translateY(0); }
 }
-
 
 @keyframes bop {
   0%, 100% {

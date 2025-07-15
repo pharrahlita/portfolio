@@ -3,11 +3,6 @@ import butterflyImg from "../../../assets/ui/butterfly-ascii.png";
 import WindowFrame from "../WindowBar/WindowFrame.jsx";
 import catSprite from "../../../assets/ui/cat2.png";
 
-const fakeLogs = [
-  "> LOADING PERSONAL FILES...",
-  "> DECRYPTING PORTFOLIO ASSETS...",
-];
-
 const AboutMe = () => {
     console.log("about loaded") 
   return (
@@ -22,43 +17,45 @@ const AboutMe = () => {
       <div className="about-me-title"> [ DOSSIER : SIANA ] </div>
 
 
-      <WindowFrame>
+        <WindowFrame>
 
-        <img src={catSprite} alt="Pixel Cat" className="about-cat" />
+            <img src={catSprite} alt="Pixel Cat" className="about-cat" />
 
-        <div className="about-me-header">[ ABOUT ME ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
+            <div className="about-me-header">[ ABOUT ME ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
 
-        {/*<div className="about-me-tags">
-          <button className="tag-btn">TAG</button>
-          <button className="tag-btn">TAG</button>
-          <button className="tag-btn">TAG</button>
-        </div>*/}
+            {/*<div className="about-me-tags">
+            <button className="tag-btn">TAG</button>
+            <button className="tag-btn">TAG</button>
+            <button className="tag-btn">TAG</button>
+            </div>*/}
 
-        <div className="about-me-content">
-          <img src={butterflyImg} alt="ASCII Butterfly" className="ascii-img" />
+          <div className="about-me-window-wrapper">
+            <div className="about-me-content">
+            <img src={butterflyImg} alt="ASCII Butterfly" className="ascii-img" />
 
-          <div className="about-me-text">
-            <p>&gt;&gt; USER: siana</p>
-            <p className="hover-glitch">
-            &gt;&gt; AGE: <span className="glitch-tooltip">??</span>
-            </p>
-            <p>&gt;&gt; CURRENT LOCATION: .../uk/bournemouth</p>
+            <div className="about-me-text">
+                <p>&gt;&gt; USER: siana</p>
+                <p className="hover-glitch">
+                &gt;&gt; AGE: <span className="glitch-tooltip">??</span>
+                </p>
+                <p>&gt;&gt; CURRENT LOCATION: .../uk/bournemouth</p>
 
-            <br />
+                <br />
 
-            <p>&gt;&gt; INTERESTS:</p>
-            <ul>
-              <li>› cybersecurity</li>
-              <li>› web design & development</li>
-              <li>› musical theatre</li>
-              <li>› pixel art</li>
-              <li>› pc building</li>
-              <li>› crochet</li>
-              <li>› making everything a game</li>
-            </ul>
+                <p>&gt;&gt; INTERESTS:</p>
+                <ul>
+                <li>› cybersecurity</li>
+                <li>› web design & development</li>
+                <li>› musical theatre</li>
+                <li>› pixel art</li>
+                <li>› pc building</li>
+                <li>› crochet</li>
+                <li>› making everything a game</li>
+                </ul>
+            </div>
+            </div>
           </div>
-        </div>
-      </WindowFrame>
+        </WindowFrame>
     </div>
   );
 };
