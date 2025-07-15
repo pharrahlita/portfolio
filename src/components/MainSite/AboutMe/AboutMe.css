@@ -2,6 +2,7 @@
   background: linear-gradient(to bottom, #323733, #242524);
   padding: 6rem 1rem 4rem;
   min-height: 100vh;
+  position: relative; 
 }
 
 /* TERMINAL LOGS */

@@ -3,13 +3,13 @@ import butterflyImg from "../../../assets/ui/butterfly-ascii.png";
 import WindowFrame from "../WindowBar/WindowFrame.jsx";
 import catSprite from "../../../assets/ui/cat2.png";
 
-
 const fakeLogs = [
   "> LOADING PERSONAL FILES...",
   "> DECRYPTING PORTFOLIO ASSETS...",
 ];
 
 const AboutMe = () => {
+    console.log("about loaded") 
   return (
     
     <div className="about-me-section" id="about"> 
@@ -25,6 +25,7 @@ const AboutMe = () => {
       </div>
 
       <div className="about-me-title"> [ DOSSIER : SIANA ] </div>
+
 
       <WindowFrame>
 

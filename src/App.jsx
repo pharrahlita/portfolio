@@ -3,13 +3,15 @@ import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Hero from "./components/MainSite/Hero/Hero";
 import Navbar from "./components/MainSite/Navbar/Navbar";
 import AboutMe from "./components/MainSite/AboutMe/AboutMe";
-//import Projects from "./components/MainSite/Projects/Projects";
-
+import MusicPlayer from "./components/MainSite/MusicPlayer/MusicPlayer";
 
 import btnSoundIdle from "./assets/ui/btn-sound-idle.png";
 import btnSoundClick from "./assets/ui/btn-sound-click.png";
 
+//import Projects from "./components/MainSite/Projects/Projects";
+
 function App() {
+  console.log("loaded")
   const [loading, setLoading] = useState(true);
   const [audioUnlocked, setAudioUnlocked] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -72,8 +74,8 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <MusicPlayer />
           <AboutMe />
-
           {/*<Projects />*/}
         </>
       )}

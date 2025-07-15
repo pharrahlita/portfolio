@@ -32,12 +32,19 @@
   background-color: #727066;
   border-bottom: 1px solid #222;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* 👈 this spreads title and controls */
   align-items: center;
   padding: 0 0.5rem;
   position: relative;
-
 }
+
+.player-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #c4bfa8;
+  user-select: none;
+}
+
 
 .window-close {
   cursor: pointer;
