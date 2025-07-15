@@ -16,6 +16,11 @@ const tracks = [
   { title: "𐔌   .  ⋮ miau.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/meow.mp3" }
 ];
 
+const fakeLogs = [
+  "> LOADING PERSONAL FILES...",
+  "> DECRYPTING PORTFOLIO ASSETS...",
+];
+
 const deathLines1 = [
   "> ok wow. you really did it.",
   "> you closed the music window.",
@@ -60,6 +65,14 @@ const MusicPlayer = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [isDoneTyping, setIsDoneTyping] = useState(false);
   const [fadeClass, setFadeClass] = useState("fadeIn");
+  const [flickerTick, setFlickerTick] = useState(0);
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+        setFlickerTick(t => t + 1);
+    }, 500); // change this to flicker faster/slower
+    return () => clearInterval(interval);
+    }, []);
 
   const audioRef = useRef(null);
   const playerRef = useRef(null);
@@ -232,6 +245,8 @@ const MusicPlayer = () => {
 
   return (
     <>
+
+
       {showDeathScreen && (
         <div className={`death-screen ${fadeClass}`}>
           <pre className="death-text">
@@ -247,6 +262,26 @@ const MusicPlayer = () => {
         className={`music-player-frame ${isDisabled || permaDisabled ? "disabled" : ""}`}
         ref={playerRef}
       >
+
+      <div className="terminal-logs">
+        {fakeLogs.map((line, i) => (
+            <div key={i} className="log-line">
+            {line.split("").map((char, j) => {
+                const shouldBlink = Math.random() < 0.1;
+                return (
+                <span
+                    key={`${i}-${j}-${flickerTick}`} // 🔥 rerender span each tick
+                    className={`log-letter glow-letter ${shouldBlink ? "blinking-letter" : ""}`}
+                >
+                    {char}
+                </span>
+                );
+            })}
+            </div>
+        ))}
+      </div>
+
+
         <img
           src={permaDisabled ? catGhost : musicCat}
           alt="cat"

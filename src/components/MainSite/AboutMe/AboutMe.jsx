@@ -14,11 +14,6 @@ const AboutMe = () => {
     
     <div className="about-me-section" id="about"> 
 
-      <div className="terminal-logs">
-        {fakeLogs.map((line, i) => (
-            <div key={i} className="log-line">{line}</div>
-        ))}
-      </div>
 
       <div className="bg-terminal-text">
         EACH TIME IT ASKED FOR A USERNAME, I HESITATED. WHAT NAME DO YOU GIVE YOURSELF WHEN YOUR WHOLE OS IS PATCHED TOGETHER WITH LABELS THAT NEVER QUITE LOADED? I TYPE ‘SIANY’, BUT THE CURSOR BLINKS LIKE IT’S WAITING FOR MORE. MAYBE THE NAME IS WRONG. MAYBE THE SYSTEM IS.

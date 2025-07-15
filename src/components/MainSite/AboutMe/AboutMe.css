@@ -5,21 +5,6 @@
   position: relative; 
 }
 
-/* TERMINAL LOGS */
-.terminal-logs {
-  font-size: 1rem;
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-  color: #ccc;
-  align-self: center;
-  user-select: none;
-  -webkit-user-select: none; /* For Safari */
-}
-
-.log-line {
-  opacity: 1;
-}
-
 .about-cat {
   position: absolute;
   top: -15%;

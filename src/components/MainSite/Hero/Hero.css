@@ -1,3 +1,4 @@
+/* 🧱 Base Hero Container */
 .hero {
   background-color: #323733;
   color: #ded9c5;
@@ -12,10 +13,11 @@
   pointer-events: none;
   padding: 0;
   user-select: none;
-  -webkit-user-select: none; /* For Safari */
-  -ms-user-select: none;     /* For IE/Edge */
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
+/* 📦 Main content wrapper */
 .hero-container {
   position: relative;
   z-index: 1;
@@ -25,6 +27,7 @@
   width: 100%;
 }
 
+/* 🖋️ Side Text */
 .hero-side-text {
   position: absolute;
   letter-spacing: 0.5rem;
@@ -43,15 +46,14 @@
 .hero-side-text.left {
   left: 0;
   text-align: left;
-  padding-left: 0rem;
 }
 
 .hero-side-text.right {
   right: 0;
   text-align: right;
-  padding-right: 0rem;
 }
 
+/* 🎯 Center Section */
 .hero-center {
   z-index: 2;
   text-align: center;
@@ -59,27 +61,29 @@
   padding: 2rem;
   pointer-events: auto;
   position: relative;
-
 }
 
+/* 🌌 Title Container */
 .title-container {
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
+/* 🖼️ Background ASCII or decorative image */
 .title-background {
   position: absolute;
   z-index: 0;
   margin-top: 150px;
-  width: 400%; /* Adjust based on your image size */
+  width: 400%;
   height: auto;
-  opacity: 0.1; /* Adjust opacity as needed */
+  opacity: 0.1;
   pointer-events: none;
 }
 
+/* 🖤 Hero Title */
 .hero-title {
   font-family: "TAN Headline", sans-serif;
   font-size: 7rem;
@@ -100,87 +104,69 @@
   transition: transform 0.6s ease;
 }
 
-/* the CHAOS begins here */
-.hero-title.fragmented span:nth-child(1) {
-  transform: translate(-100px, -80px) rotate(-12deg);
-}
-.hero-title.fragmented span:nth-child(2) {
-  transform: translate(-10px, -200px) rotate(8deg);
-}
-.hero-title.fragmented span:nth-child(3) {
-  transform: translate(15px, -140px) rotate(-6deg);
-}
-.hero-title.fragmented span:nth-child(4) {
-  transform: translate(25px, -250px) rotate(10deg);
-}
-.hero-title.fragmented span:nth-child(5) {
-  transform: translate(50px, -90px) rotate(18deg);
-}
+/* 💥 Fragmented Title Chaos Mode */
+.hero-title.fragmented span:nth-child(1) { transform: translate(-100px, -80px) rotate(-12deg); }
+.hero-title.fragmented span:nth-child(2) { transform: translate(-10px, -200px) rotate(8deg); }
+.hero-title.fragmented span:nth-child(3) { transform: translate(15px, -140px) rotate(-6deg); }
+.hero-title.fragmented span:nth-child(4) { transform: translate(25px, -250px) rotate(10deg); }
+.hero-title.fragmented span:nth-child(5) { transform: translate(50px, -90px) rotate(18deg); }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
+/* 🫧 Subtext */
 .hero-subtext {
   margin-top: 1rem;
   font-size: 1.5rem;
-  font-family: 'VT323', monospace;
   letter-spacing: 1px;
   color: #ded9c5;
+  font-family: 'VT323', monospace;
 }
 
-.prompt-symbol {
-  color: #c9c3ae;
-}
-
+/* ❇️ Blinker Cursor */
 .blinker {
   animation: blink 1s step-start infinite;
   display: inline-block;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden;
-}
-
-.hero-title,
-.hero-subtext {
-  position: relative;
-  z-index: 1;
-}
-
-/* Side Text Component Anims */
-.side-line span {
-  transition: all 0.3s ease;
-}
-
-/* base glow for all letters */
+/* ✨ Flicker Glow Text */
 .glow-letter {
   color: #eaeaea;
   text-shadow: 0 0 2px #ccc, 0 0 6px #ccc;
 }
 
-/* flickering letters on top */
 .blinking-letter {
   color: #ffffff;
   text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px #aaffff;
-  animation: flicker 0.8s infinite alternate;
+  animation: flicker 0.3s infinite alternate;
+}
+
+/* 🔀 Side-text letter anims */
+.side-line span {
+  transition: all 0.3s ease;
+}
+
+/* 🧨 Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 @keyframes flicker {
-  0% {
-    opacity: 1;
-    filter: brightness(1.2);
-  }
-  100% {
-    opacity: 0.5;
-    filter: brightness(0.6);
-  }
+  0%   { opacity: 1; filter: brightness(1.2); }
+  100% { opacity: 0.5; filter: brightness(0.6); }
+}
+
+/* 🌍 Global Reset */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* 🔢 Z-index fix */
+.hero-title,
+.hero-subtext {
+  position: relative;
+  z-index: 1;
 }

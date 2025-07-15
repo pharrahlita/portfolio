@@ -7,9 +7,54 @@
   width: 500px;
   position: absolute;
   z-index: 9999;
-  top: 69rem; 
+  top: 63rem; 
   left: 20rem;
 }
+
+/* TERMINAL LOGS */
+/* Terminal logs centered & glowing */
+
+.terminal-logs {
+  position: absolute;
+  top: -55%;
+  left: 100%;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  color: #ccc;
+  user-select: none;
+  opacity: 0.2;
+  background: transparent;
+}
+
+.log-line {
+  display: flex;
+  gap: 0.2rem;
+}
+
+/* reuse hero glow classes */
+.log-letter.glow-letter {
+  color: #eaeaea;
+  text-shadow: 0 0 2px #ccc, 0 0 6px #ccc;
+}
+
+.log-letter.blinking-letter {
+  color: #ffffff;
+  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px #aaffff;
+  animation: flicker 0.8s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    filter: brightness(0.6);
+  }
+}
+
 
 /* Hide on small screens */
 @media (max-width: 768px) {
