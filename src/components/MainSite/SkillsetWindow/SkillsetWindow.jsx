@@ -1,30 +1,17 @@
-import "./Skillset.css";
-import WindowFrame from "../WindowFrame/WindowFrame";
+import "./SkillsetWindow.css";
+import SkillsetFrame from "./SkillsetFrame";
+import me from "../../../assets/ui/me.png";
 
 const Skillset = () => {
   return (
     <div className="skillset-wrapper">
-      <WindowFrame title="skillset.txt">
-        <div className="skillset-window">
-          <pre className="ascii-creature">
-{String.raw`
-         .-"      "-.
-       .'              '.
-      /                  \
-     ;                    ;
-     |                    |
-     ;     .--------.     ;
-      \   '          '   /
-       '.              .'
-         '-._______.-'
-
-         (   o   o   )
-         |    ^     |
-         |  '-' '-' |
-         |    ___   |
-         \__________/
-`}
-          </pre>
+      <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
+        <div className="skillset-window" id="skills">
+          <img
+            src={me}
+            alt="photo of myself"
+            className="skillset-image"
+          />
 
           <div className="skillset-columns">
             <div className="branch">
@@ -51,7 +38,7 @@ const Skillset = () => {
             </div>
           </div>
         </div>
-      </WindowFrame>
+      </SkillsetFrame>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Navbar from "./components/MainSite/Navbar/Navbar";
 import AboutMe from "./components/MainSite/AboutMe/AboutMe";
 import MusicPlayer from "./components/MainSite/MusicPlayer/MusicPlayer";
 import TerminalLogs from "./components/MainSite/TerminalLogs/TerminalLogs";
+import Skillset from "./components/MainSite/SkillsetWindow/SkillsetWindow";
 
 
 //import Projects from "./components/MainSite/Projects/Projects";
@@ -32,6 +33,7 @@ function App() {
           <TerminalLogs tick={tick} />
           <MusicPlayer />
           <AboutMe />
+          <Skillset />
           {/*<Projects />*/}
         </>
       )}

@@ -111,6 +111,7 @@
   height: auto;
   image-rendering: pixelated;
   flex-shrink: 0;
+  border: 1.5px solid #383532;
 }
 
 .about-me-text {
@@ -133,7 +134,7 @@
 
 .bg-terminal-text {
   position: absolute;
-  top: 1300px;
+  top: 250px;
   left: -89px;
   width: 800px;
   padding: 5rem;
