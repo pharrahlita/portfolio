@@ -1,48 +1,86 @@
 import "./SkillsetWindow.css";
 import SkillsetFrame from "./SkillsetFrame";
 import me from "../../../assets/ui/me.png";
+import sunflowers from "../../../assets/ui/sunflowers.png";
+
+import { useState } from "react";
 
 const Skillset = () => {
+  const [openBranch, setOpenBranch] = useState(null);
+
+  const toggleBranch = (branch) => {
+    setOpenBranch(openBranch === branch ? null : branch);
+  };
+
   return (
-    <div className="skillset-wrapper">
+    <>
+      <div className="skills-title">[ XP FILES ]</div>
 
-      <div className="skills-title"> [ SKILLSET ] </div>
+      <div className="skillset-wrapper">
+        <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
+        <div className="skillset-header">[ SKILLSET ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
+          <div className="skillset-window" id="skills">
 
-      <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
-        <div className="skillset-window" id="skills">
-          <img
-            src={me}
-            alt="photo of myself"
-            className="skillset-image"
-          />
+            <img
+              src={me}
+              alt="photo of myself"
+              className="skillset-image"
+            />
 
-          <div className="skillset-columns">
-            <div className="branch">
-              <h3>+ Frontend Branch 🌱</h3>
-              <p>– HTML / CSS / Sass / JavaScript / React</p>
+            <div className="skillset-columns">
+              {[
+                {
+                  title: "> ✧˚࿔ frontend ₊✧.˚",
+                  content: "HTML / CSS / Sass / JavaScript / React",
+                  key: "frontend",
+                },
+                {
+                  title: "> ✧˚࿔ design ₊✧.˚",
+                  content:
+                    "Figma / Canva / Aseprite / Adobe Suite [Photoshop, Xd, Premiere Pro, After Effects, Illustrator]",
+                  key: "design",
+                },
+                {
+                  title: "> ✧˚࿔ productivity ₊✧.˚",
+                  content: "Trello / Notion / GitHub / Git / VSCode",
+                  key: "productivity",
+                },
+                {
+                  title: "> ✧˚࿔ side quests ₊✧.˚",
+                  content: "Pixel Art / Streaming / Video Game Modding",
+                  key: "sidequests",
+                },
+              ].map(({ title, content, key }) => (
+                <div
+                  key={key}
+                  className={`branch ${openBranch === key ? "open" : ""}`}
+                  onClick={() => toggleBranch(key)}
+                >
+                  <h3>
+                    <span className="branch-toggle">
+                      {openBranch === key ? "⊹" : "⊹"}
+                    </span>{" "}
+                    {title}
+                  </h3>
+                  <p className="branch-content">
+                    – {content}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            <div className="branch">
-              <h3>+ Design Branch 🎨</h3>
-              <p>
-                – Figma / Canva / Aseprite / Adobe Suite<br />
-                [Photoshop, Xd, Premiere Pro, After Effects, Illustrator]
-              </p>
-            </div>
-
-            <div className="branch">
-              <h3>+ Productivity Branch 📑</h3>
-              <p>– Trello / Notion / GitHub / Git / VSCode</p>
-            </div>
-
-            <div className="branch">
-              <h3>+ Side Quests 🕹</h3>
-              <p>– Pixel Art / Streaming / Video Game Modding</p>
-            </div>
           </div>
-        </div>
-      </SkillsetFrame>
-    </div>
+          
+        </SkillsetFrame>
+
+            <img
+              src={sunflowers}
+              alt="sunflowers"
+              className="sunflower-image"
+            />
+
+      </div>
+    </>
   );
 };
 

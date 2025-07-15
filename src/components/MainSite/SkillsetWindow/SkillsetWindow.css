@@ -1,23 +1,22 @@
 .skills-title {
-  position: relative;
-  margin-top: 3rem;
-  margin-bottom: -12.5rem;
-  left: 7%;
-  color: #c4bfa8;
-  font-size: 2.5rem;
-  text-align: center;
   font-family: 'VT323', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  z-index: 100;
+  font-size: 2.5rem;
+  color: #c4bfa8;
+  margin-left: 10rem;
+  top: -410px;
+  z-index: 10000;
+  position: relative;
 }
 
 .skillset-wrapper {
-  position: absolute;
-  top: 90rem;
-  left: -11%;
+  position: relative;
+  margin: 2rem auto;
+  top: -38rem;
+  right: 46.5rem;
   z-index: 9999;
+  max-width: 750px;
 }
+
 
 .skillset-window {
   display: flex;
@@ -25,11 +24,25 @@
   padding: 1rem;
   font-family: 'VT323', monospace;
   color: #f3eeda;
+  max-width: 750px;
+  min-height: 350px;
 }
 
+.skillset-header {
+  color: #423c33;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #423c33;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
 .skillset-image {
-  width: 300px;
-  height: auto;
+  width: 250px;
+  height: 300px;
   margin-right: 2rem;
   image-rendering: pixelated;
   user-select: none;
@@ -46,18 +59,91 @@
 
 .branch h3 {
   margin: 0;
-  color: #d6d2bc;
+  color: #423c33;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+  font-size: 26px;
+}
+
+.branch h3:hover {
+  color: #f3eeda;
+  text-shadow: 0 0 3px #c5c1ab;
 }
 
 .branch p {
-  margin: 0.2rem 0 0;
+  margin: 0.3rem 0 0 1.2rem;
   color: #c5c1ab;
+  transition: opacity 0.3s ease;
+  font-size: 20px;
 }
 
+.branch-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  color: #c5c1ab;
+  margin-left: 1rem;
+  white-space: pre-line;
+  user-select: none;
+}
+
+/* reveal content when branch is open */
+.branch.open .branch-content {
+  max-height: 500px; 
+  opacity: 1;
+}
+
+.branch-toggle {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+/* when branch is open, rotate the arrow down */
+.branch.open .branch-toggle {
+  transform: rotate(136deg);
+}
+
+.sunflower-image {
+  position: relative;
+  top: -380px;
+  left: 990px;
+  width: 190px;
+  z-index: 9999;
+  user-select: none;
+}
+
+
 @media (max-width: 768px) {
+   .skills-title {
+    position: relative;
+    top: 12.5rem;
+    left: -31%;
+    color: #c4bfa8;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  } 
+
   .skillset-window {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .skillset-image {
+    margin: 0 0 1rem 0;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .skillset-columns {
+    width: 100%;
+    padding: 0 1rem;
   }
 }

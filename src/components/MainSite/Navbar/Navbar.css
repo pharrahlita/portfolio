@@ -9,7 +9,7 @@
   top: 2rem;
   right: 2rem;
   border: 1px solid #0c0b0b;
-  z-index: 9999;
+  z-index: 999999;
 }
 
 .nav-link-wrapper {
