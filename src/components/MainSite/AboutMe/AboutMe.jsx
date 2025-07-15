@@ -14,13 +14,13 @@ const AboutMe = () => {
         EACH TIME IT ASKED FOR A USERNAME, I HESITATED. WHAT NAME DO YOU GIVE YOURSELF WHEN YOUR WHOLE OS IS PATCHED TOGETHER WITH LABELS THAT NEVER QUITE LOADED? I TYPE ‘SIANY’, BUT THE CURSOR BLINKS LIKE IT’S WAITING FOR MORE. MAYBE THE NAME IS WRONG. MAYBE THE SYSTEM IS.
       </div>
 
-      <div className="about-me-title"> [ DOSSIER : SIANA ] </div>
+      <div className="about-me-title"> [ ABOUT ME ] </div>
 
         <WindowFrame>
 
             <img src={catSprite} alt="Pixel Cat" className="about-cat" />
 
-            <div className="about-me-header">[ ABOUT ME ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
+            <div className="about-me-header">[ DOSSIER : SIANA ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
 
             {/*<div className="about-me-tags">
             <button className="tag-btn">TAG</button>

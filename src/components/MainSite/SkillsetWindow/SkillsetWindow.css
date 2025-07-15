@@ -117,10 +117,24 @@
 
 
 @media (max-width: 768px) {
-   .skills-title {
+  .skillset-wrapper {
     position: relative;
-    top: 12.5rem;
-    left: -31%;
+    top: -5rem;
+    right: 0;
+    left: 0;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    padding: 0 1rem;
+    z-index: 9999;
+  }
+
+  .skills-title {
+    position: absolute;
+    margin-top: 134.5rem;
+    left: -13.5%;
     color: #c4bfa8;
     font-size: 2.5rem;
     text-align: center;
@@ -128,6 +142,16 @@
     text-transform: uppercase;
     letter-spacing: 0.1rem;
   } 
+
+
+  .sunflower-image {
+    position: absolute;
+    top: 10rem;
+    left: 30rem;
+    width: 120px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 
   .skillset-window {
     flex-direction: column;
@@ -137,9 +161,11 @@
   }
 
   .skillset-image {
+    margin-top: 20rem;
     margin: 0 0 1rem 0;
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
   }
 
   .skillset-columns {

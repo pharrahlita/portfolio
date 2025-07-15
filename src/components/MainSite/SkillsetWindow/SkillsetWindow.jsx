@@ -14,11 +14,11 @@ const Skillset = () => {
 
   return (
     <>
-      <div className="skills-title">[ XP FILES ]</div>
+      <div className="skills-title">[ SKILLSET ]</div>
 
       <div className="skillset-wrapper">
         <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
-        <div className="skillset-header">[ SKILLSET ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
+        <div className="skillset-header">[ XP FILES ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
           <div className="skillset-window" id="skills">
 
             <img
