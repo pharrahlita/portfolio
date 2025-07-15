@@ -29,6 +29,42 @@
   cursor: move;
 }
 
+.player-close-container {
+  position: relative;
+  display: inline-block;
+}
+
+.player-close {
+  color: #c4bfa8;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  user-select: none;
+  cursor: help;
+  position: relative;
+  bottom: 0.2rem;
+}
+
+.player-close-tooltip {
+  position: absolute;
+  top: -2.7rem;
+  left: 50%;
+  transform: translateX(-55%);
+  background-color: #f3eeda;
+  color: #222;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #222;
+  box-shadow: 2px 2px #000;
+  white-space: nowrap;
+  z-index: 1001;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  font-family: "VT323", monospace;
+}
+
 .player-title {
   font-size: 1rem;
   font-weight: bold;
@@ -98,15 +134,23 @@
 }
 
 .music-controls img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   image-rendering: pixelated;
 }
 
-.track-title {
-  font-size: 1rem;
+.now-playing {
+  font-size: 0.9rem;
   color: #f3eeda;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
+  font-family: monospace;
+}
+
+.track-title {
+  font-size: 2rem;
+  color: #c4bfa8;
+  margin-bottom: 1rem;
+  font-family: 'VT323', monospace;
 }
 
 .progress-bar {
@@ -130,7 +174,7 @@
   position: fixed;
   inset: 0;
   background-color: #000;
-  color: #00ff88;
+  color: #525e58;
   font-family: 'VT323', monospace;
   font-size: 1.3rem;
   display: flex;
@@ -141,19 +185,14 @@
   pointer-events: none;
 }
 
-.death-text {
-  white-space: pre-line;
-  animation: flicker 0.9s infinite alternate;
-}
-
 .glitchy {
-  color: #ff4d6d;
+  color: rgb(94, 56, 63);
   font-weight: bold;
   animation: glitch 0.3s infinite;
   text-shadow:
-    1px 0 #00fff7,
-    -1px 0 #ff4d6d,
-    0 0 3px #ff4d6d;
+    1px 0 #556969,
+    -1px 0 rgb(94, 56, 63),
+    0 0 3px rgb(94, 56, 63);
 }
 
 @keyframes fadeIn {
@@ -190,7 +229,7 @@
 
 .forgive-btn {
   font-family: 'VT323', monospace;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #ff4d6d;
   background-color: #000;
   padding: 1rem 2rem;
@@ -212,3 +251,43 @@
   box-shadow: 0 0 5px #000000;
 }
 
+.music-cat.ghost {
+  left: 40%;
+  animation: floaty 2.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
+
+.death-text {
+  white-space: pre-line;
+  font-family: 'VT323', monospace;
+  color: #525e58;
+  font-size: 1.3rem;
+  animation: flicker 0.9s infinite alternate;
+}
+
+.blink {
+  animation: blink-caret 1s step-start infinite;
+}
+
+@keyframes blink-caret {
+  50% { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fadeOut {
+  animation: fadeOut 1s ease-out forwards;
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}

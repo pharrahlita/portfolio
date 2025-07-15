@@ -19,15 +19,12 @@ const LoadingScreen = ({ onFinish }) => {
   ];
   
   const rawInitialSubtexts = [
-    "was supposed to rest. made a website instead...𓂃 ࣪˖ ִֶָ𐀔",
-    "just one more side project... (it's this one).",
-    "certified html girlie.",
+    "was supposed to rest. made a website instead...",
     "probably overengineered this a little.",
     "adhd-coded. literally.",
     "attention to detail? unfortunately, yes.",
     "yes, everything is custom. no, I don’t sleep.",
     "console.log('blorp blorp');",
-    "don’t worry, the site’s responsive. unlike me.",
     "i hope you like it. i spent way too long on this.",
     "if you see this, hi <3.",
     "you have entered: The Dev Zone.",

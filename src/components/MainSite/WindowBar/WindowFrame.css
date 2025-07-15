@@ -58,22 +58,23 @@
 }
 
 .window-close::after {
-  content: "hehe... you can't close me, i'm immortal!!! :D";
-  cursor: help;
   position: absolute;
-  top: -2rem;
+  top: -2.7rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-55%);
   background-color: #f3eeda;
   color: #222;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   padding: 0.2rem 0.4rem;
   border: 1px solid #222;
   box-shadow: 2px 2px #000;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
   white-space: nowrap;
   z-index: 1001;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  font-family: "VT323", monospace;
+
 }
 
 .window-close:hover::after {
