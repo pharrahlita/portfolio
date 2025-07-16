@@ -9,9 +9,9 @@ import prevIcon from "../../../assets/ui/prev.svg";
 import skipIcon from "../../../assets/ui/skip.svg";
 
 const tracks = [
-  { title: "𐔌   .  ⋮ waar ben ik.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/metro.mp3" },
-  { title: "𐔌   .  ⋮ untitled.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/scared.mp3" },
   { title: "𐔌   .  ⋮ wildflower.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/wildflower.mp3" },
+  { title: "𐔌   .  ⋮ untitled.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/scared.mp3" },
+  { title: "𐔌   .  ⋮ waar ben ik.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/metro.mp3" },
   { title: "𐔌   .  ⋮ angst.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/labour.mp3" },
   { title: "𐔌   .  ⋮ miau.mp3  .ᐟ  ֹ   ₊ ꒱", src: "/assets/audio/meow.mp3" }
 ];
