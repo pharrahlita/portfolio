@@ -1,9 +1,11 @@
+import { useEffect, useRef, useState } from "react";
+
 import "./AboutMe.css";
 import butterflyImg from "../../../assets/ui/butterfly-ascii.png";
 import WindowFrame from "../WindowBar/WindowFrame.jsx";
 import catSprite from "../../../assets/ui/cat2.png";
-import { useEffect, useRef, useState } from "react";
-
+import blossomSprite from "../../../assets/ui/cherryblossoms.png";
+import petalSprite from "../../../assets/ui/blossom-petal.png";
 
 const AboutMe = () => {
   
@@ -24,6 +26,28 @@ const AboutMe = () => {
     return () => document.removeEventListener("mousemove", handleMouseMove);
   }, [showTooltip]);
 
+
+  const [isHoveringBlossoms, setIsHoveringBlossoms] = useState(false);
+  const [petalDrops, setPetalDrops] = useState([]);
+
+  useEffect(() => {
+    let interval;
+
+    if (isHoveringBlossoms) {
+      interval = setInterval(() => {
+        const newDrop = {
+          id: Date.now(),
+          left: Math.random() * 100,
+          delay: Math.random() * 0.3,
+        };
+        setPetalDrops((prev) => [...prev, newDrop]);
+      }, 200); // adjust spawn rate here
+    }
+
+    return () => clearInterval(interval);
+  }, [isHoveringBlossoms]);
+
+
   return (
     
     <div className="about-me-section" id="about"> 
@@ -38,6 +62,30 @@ const AboutMe = () => {
         <WindowFrame>
 
             <img src={catSprite} alt="Pixel Cat" className="about-cat" />
+
+            <div
+              className="cherry-blossoms"
+              onMouseEnter={() => setIsHoveringBlossoms(true)}
+              onMouseLeave={() => {
+                setIsHoveringBlossoms(false);
+                setPetalDrops([]); // clear petals on exit
+              }}
+            >
+              <img src={blossomSprite} alt="Cherry Blossoms" className="cherry-blossoms-img" />
+
+              {petalDrops.map((drop) => (
+                <img
+                  key={drop.id}
+                  src={petalSprite}
+                  alt="🌸"
+                  className="petal-drop"
+                  style={{
+                    left: `${drop.left}%`,
+                    animationDelay: `${drop.delay}s`,
+                  }}
+                />
+              ))}
+            </div>
 
             <div className="about-me-header">[ DOSSIER : SIANA ]  𓂃 ࣪˖ ִֶָ𐀔 </div>
 

@@ -5,13 +5,70 @@
   position: relative; 
 }
 
+.cherry-blossoms {
+  position: absolute;
+  top: -15%;
+  right: -4rem;
+  width: 300px;
+  image-rendering: pixelated;
+  z-index: 9999;
+  pointer-events: auto;
+  transform-origin: right center; /* anchor it on the right side */
+}
+
+.cherry-blossoms:hover {
+  animation: branch-sway 0.4s ease-in-out;
+}
+
+@keyframes branch-sway {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-1deg); }
+  50%  { transform: rotate(1.5deg); }
+  75%  { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.petal-container {
+  position: relative;
+  display: inline-block;
+}
+
+.petal-drop {
+  position: absolute;
+  top: 50px;
+  width: 30px;
+  opacity: 0;
+  animation: blossomFall 2.5s ease-in;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes blossomFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
 .about-cat {
   position: absolute;
   top: -15%;
   right: 8rem;
   width: 150px;
   image-rendering: pixelated;
-  z-index: 9999;
+  z-index: 99999;
   pointer-events: auto;
 }
 
@@ -23,7 +80,6 @@
   80% { transform: translateX(2px) rotate(2deg); }
   100% { transform: translateX(0); }
 }
-
 
 .about-cat:hover {
     animation: wiggle 0.3s ease-in-out;
@@ -200,7 +256,7 @@
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: help;
-  z-index: 9999;
+  z-index: 999;
   box-shadow: 2px 2px #0000007a;
 }
 
@@ -228,8 +284,6 @@
   visibility: visible;
   opacity: 1;
 }
-
-
 
 
 /* MOBILE ADJUSTMENTS */
