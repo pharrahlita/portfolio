@@ -2,9 +2,28 @@ import "./AboutMe.css";
 import butterflyImg from "../../../assets/ui/butterfly-ascii.png";
 import WindowFrame from "../WindowBar/WindowFrame.jsx";
 import catSprite from "../../../assets/ui/cat2.png";
+import { useEffect, useRef, useState } from "react";
+
 
 const AboutMe = () => {
-    console.log("about loaded") 
+  
+  console.log("about loaded") //debug stuff
+
+  const tooltipRef = useRef(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (tooltipRef.current && showTooltip) {
+        tooltipRef.current.style.top = `${e.clientY + 15}px`;
+        tooltipRef.current.style.left = `${e.clientX + 15}px`;
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
+  }, [showTooltip]);
+
   return (
     
     <div className="about-me-section" id="about"> 
@@ -55,6 +74,23 @@ const AboutMe = () => {
             </div>
           </div>
         </WindowFrame>
+
+        <>
+          <a
+            href="/assets/cv/SIANA-PROJECT%20SUMMARY-2025.pdf"
+            download="SIANA_PROJECT_SUMMARY_2025.pdf"
+            className="cv-download-btn"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
+            DOWNLOAD FULL REPORT
+          </a>
+
+          {showTooltip && (
+            <div ref={tooltipRef} className="cv-tooltip-follow">aka my project cv</div>
+          )}
+        </>
+
     </div>
   );
 };

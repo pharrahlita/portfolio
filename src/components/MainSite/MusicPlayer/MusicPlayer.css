@@ -11,54 +11,6 @@
   left: 20rem;
 }
 
-/* TERMINAL LOGS */
-/* Terminal logs centered & glowing */
-
-.terminal-logs {
-  position: absolute;
-  top: 4rem; /* adjust for taste */
-  left: 2rem;
-  width: auto;
-  max-width: 800px;
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  color: #ccc;
-  opacity: 0.2;
-  z-index: 0;
-  user-select: none;
-  pointer-events: none;
-  white-space: pre-wrap;
-}
-
-
-.log-line {
-  display: flex;
-  gap: 0.2rem;
-}
-
-/* reuse hero glow classes */
-.log-letter.glow-letter {
-  color: #eaeaea;
-  text-shadow: 0 0 2px #ccc, 0 0 6px #ccc;
-}
-
-.log-letter.blinking-letter {
-  color: #ffffff;
-  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 12px #aaffff;
-  animation: flicker 0.8s infinite alternate;
-}
-
-@keyframes flicker {
-  0% {
-    opacity: 1;
-    filter: brightness(1.2);
-  }
-  100% {
-    opacity: 0.5;
-    filter: brightness(0.6);
-  }
-}
-
 
 /* Hide on small screens */
 @media (max-width: 768px) {
@@ -160,6 +112,7 @@
   75% { transform: rotate(-2deg) translateY(-1px); }
   100% { transform: rotate(0deg) translateY(0); }
 }
+
 
 @keyframes bop {
   0%, 100% {
