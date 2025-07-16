@@ -25,7 +25,7 @@
   font-family: 'VT323', monospace;
   color: #f3eeda;
   max-width: 750px;
-  min-height: 350px;
+  max-height: 335px;
 }
 
 .skillset-header {
@@ -60,7 +60,7 @@
 .branch h3 {
   margin: 0;
   color: #423c33;
-  cursor: pointer;
+  cursor: auto;
   transition: color 0.2s ease;
   user-select: none;
   font-size: 26px;
@@ -69,51 +69,93 @@
 .branch h3:hover {
   color: #f3eeda;
   text-shadow: 0 0 3px #c5c1ab;
-}
-
-.branch p {
-  margin: 0.3rem 0 0 1.2rem;
-  color: #c5c1ab;
-  transition: opacity 0.3s ease;
-  font-size: 20px;
+  cursor: auto;
 }
 
 .branch-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
   color: #c5c1ab;
   margin-left: 1rem;
   white-space: pre-line;
   user-select: none;
-}
-
-/* reveal content when branch is open */
-.branch.open .branch-content {
-  max-height: 500px; 
   opacity: 1;
-}
-
-.branch-toggle {
-  display: inline-block;
-  transition: transform 0.3s ease;
-  margin-right: 0.5rem;
-}
-
-/* when branch is open, rotate the arrow down */
-.branch.open .branch-toggle {
-  transform: rotate(136deg);
+  max-height: none;
+  font-family: monospace;
+  cursor: help;
 }
 
 .sunflower-image {
   position: relative;
-  top: -380px;
-  left: 990px;
-  width: 190px;
+  top: -370px;
+  left: 1010px;
+  width: 130px;
   z-index: 9999;
   user-select: none;
 }
+
+.sunflower-container {
+  position: relative;
+  display: inline-block;
+}
+
+.sunflower-drop {
+  position: absolute;
+  top: -50px;
+  width: 30px;
+  opacity: 0;
+  animation: sunflowerFall 2.5s ease-in;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes sunflowerFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+.skillset-image {
+  z-index: 1;
+  position: relative;
+}
+
+.tool-tag {
+  position: relative;
+  cursor: help;
+  color: #c5c1ab;
+  transition: color 0.2s ease;
+}
+
+.tool-tag:hover {
+  color: #f3eeda;
+  text-shadow: 0 0 3px #c5c1ab;
+  cursor: help;
+}
+
+.tooltip-follow {
+  position: fixed;
+  pointer-events: none;
+  background: #1c1b1a7e;
+  color: #f3eeda;
+  padding: 0.3rem 0.6rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  z-index: 9999;
+  white-space: nowrap;
+  transition: opacity 0.1s ease;
+}
+
 
 
 @media (max-width: 768px) {
@@ -158,6 +200,8 @@
     align-items: center;
     text-align: center;
     padding: 1rem 0.5rem;
+    min-height: 830px;
+
   }
 
   .skillset-image {
@@ -172,4 +216,17 @@
     width: 100%;
     padding: 0 1rem;
   }
+
+    .branch-content {
+    color: #c5c1ab;
+    margin-left: 1rem;
+    white-space: pre-line;
+    user-select: none;
+    opacity: 1;
+    max-height: none;
+    font-family: monospace;
+    font-size:0.9rem;
+    }
+
 }
+
