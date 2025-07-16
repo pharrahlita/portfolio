@@ -49,6 +49,8 @@
   opacity: 0.9;
   filter: brightness(1.1) saturate(0.8);
   border: 1.5px solid #383532;
+  z-index: 1;
+  position: relative;
 }
 
 .skillset-columns {
@@ -124,11 +126,6 @@
   }
 }
 
-
-.skillset-image {
-  z-index: 1;
-  position: relative;
-}
 
 .tool-tag {
   position: relative;
