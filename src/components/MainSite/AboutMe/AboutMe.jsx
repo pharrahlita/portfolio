@@ -31,22 +31,21 @@ const AboutMe = () => {
   const [petalDrops, setPetalDrops] = useState([]);
 
   useEffect(() => {
-    let interval;
-
     if (isHoveringBlossoms) {
-      interval = setInterval(() => {
-        const newDrop = {
-          id: Date.now(),
-          left: Math.random() * 100,
-          delay: Math.random() * 0.3,
-        };
-        setPetalDrops((prev) => [...prev, newDrop]);
-      }, 200); // adjust spawn rate here
+      const drops = Array.from({ length: 5 }, () => ({
+        id: Date.now() + Math.random(),
+        left: Math.random() * 130,
+        delay: Math.random() * 0.5,
+        zIndex: Math.random() > 0.1 ? 9950 : 9999,
+        scale: Math.random() * 0.5 + 0.75,
+      }));
+
+      setPetalDrops(drops);
+
+      const timeout = setTimeout(() => setPetalDrops([]), 6000);
+      return () => clearTimeout(timeout);
     }
-
-    return () => clearInterval(interval);
   }, [isHoveringBlossoms]);
-
 
   return (
     
@@ -65,11 +64,11 @@ const AboutMe = () => {
 
             <div
               className="cherry-blossoms"
-              onMouseEnter={() => setIsHoveringBlossoms(true)}
-              onMouseLeave={() => {
-                setIsHoveringBlossoms(false);
-                setPetalDrops([]); // clear petals on exit
+              onMouseEnter={() => {
+                setIsHoveringBlossoms(false); 
+                setTimeout(() => setIsHoveringBlossoms(true), 50);
               }}
+
             >
               <img src={blossomSprite} alt="Cherry Blossoms" className="cherry-blossoms-img" />
 
@@ -82,6 +81,8 @@ const AboutMe = () => {
                   style={{
                     left: `${drop.left}%`,
                     animationDelay: `${drop.delay}s`,
+                    zIndex: drop.zIndex,
+                    transform: `scale(${drop.scale})`,
                   }}
                 />
               ))}

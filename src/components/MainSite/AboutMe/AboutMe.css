@@ -13,7 +13,7 @@
   image-rendering: pixelated;
   z-index: 9999;
   pointer-events: auto;
-  transform-origin: right center; /* anchor it on the right side */
+  transform-origin: right center; 
 }
 
 .cherry-blossoms:hover {
@@ -35,12 +35,11 @@
 
 .petal-drop {
   position: absolute;
-  top: 50px;
+  top: 250px;
   width: 30px;
   opacity: 0;
-  animation: blossomFall 2.5s ease-in;
+  animation: blossomFall 5s ease-in;
   pointer-events: none;
-  z-index: 9999;
 }
 
 @keyframes blossomFall {
@@ -49,17 +48,16 @@
     opacity: 0;
   }
   10% {
-    opacity: 1;
+  opacity: 0.8;
   }
   90% {
-    opacity: 1;
+  opacity: 0.8;
   }
   100% {
     transform: translateY(400px) rotate(360deg);
     opacity: 0;
   }
 }
-
 
 
 .about-cat {
