@@ -293,4 +293,27 @@
   .about-me-header {
     text-align: center;
   }
+
+  .cv-download-btn {
+  display: block;
+  margin-left: auto;
+  margin-top: 11rem;
+  margin-right: 5rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  background-color: #746e64;
+  color: #000;
+  border: 2px solid #000;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: help;
+  z-index: 9999;
+  box-shadow: 2px 2px #0000007a;
+  margin-bottom: -9rem;
+}
+
 }

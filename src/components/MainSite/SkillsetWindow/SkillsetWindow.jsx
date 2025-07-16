@@ -87,10 +87,10 @@ const Skillset = () => {
     <>
       <div className="skills-title">[ SKILLSET ]</div>
 
-      <div className="skillset-wrapper">
+      <div className="skillset-wrapper" id="skills">
         <SkillsetFrame title="୧ ‧₊˚ 💭 ⋅ ☆ skillset.exe">
           <div className="skillset-header">[ XP FILES ] 𓂃 ࣪˖ ִֶָ𐀔</div>
-          <div className="skillset-window" id="skills">
+          <div className="skillset-window">
             
           <div
             className="sunflower-container"

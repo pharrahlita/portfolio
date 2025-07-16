@@ -87,7 +87,7 @@ const AboutMe = () => {
           </a>
 
           {showTooltip && (
-            <div ref={tooltipRef} className="cv-tooltip-follow">aka my project cv</div>
+            <div ref={tooltipRef} className="cv-tooltip-follow">aka my recent projects</div>
           )}
         </>
 
